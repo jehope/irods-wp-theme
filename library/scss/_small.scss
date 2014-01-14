@@ -159,6 +159,13 @@ HEADER STYLES
     margin: 0.57em 0 0.17em;
     font-size: $h1-font-size;
     font-weight: bold;
+    background: url(../images/iRODS-Logo.png) no-repeat top left;
+    	a { 		
+    		width: 400px;
+    		height: 80px;
+    		display: inline-block;
+    		opacity: 0;
+    	}
     }
 
 /*********************

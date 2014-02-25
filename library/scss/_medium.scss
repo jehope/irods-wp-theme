@@ -7,11 +7,10 @@ Styles apply to 40.063em and up.
 ******************************************************************/
 
 
-	
+
 /*********************
 NAVIGATION STYLES
 *********************/
-
 
 /*********************
 POSTS & CONTENT STYLES
@@ -46,9 +45,9 @@ SIDEBARS & ASIDES
 *********************/
 
 	.widget {
-		padding: 0 10px;
-		margin: 2.2em 0;
-		}
+		padding: 25px;
+		margin: 0 0 3em 0;
+	}
 
 /*********************
 FOOTER STYLES
@@ -58,6 +57,19 @@ FOOTER STYLES
 check your menus here. do they look good?
 do they need tweaking?
 */
+.footer {
+	padding-top: 40px;
+
+}
+.footer-logo-widget {
+	max-width: 230px;
+	padding: 20px;
+	padding-left: 60px;
+	float:right;
+	border-left: 1px solid #FFF;
+	height: 250px;
+}
+
 .footer-links {
 	ul {
 		li {}

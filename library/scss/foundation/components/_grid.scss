@@ -6,7 +6,7 @@
 $include-html-grid-classes: $include-html-classes !default;
 
 $row-width: rem-calc(1000) !default;
-$column-gutter: rem-calc(30) !default;
+$column-gutter: rem-calc(0) !default;
 $total-columns: 12 !default;
 
 //
@@ -154,7 +154,9 @@ $total-columns: 12 !default;
   }
 
   .column,
-  .columns { @include grid-column($columns:false); }
+  .columns { 
+    @include grid-column($columns:false); 
+  }
 
 
   @for $i from 1 through $total-columns {

@@ -37,6 +37,10 @@
 	</head>
 
 	<body <?php body_class(); ?>>
+		
+		
+		<?php get_template_part( 'partials/nav', 'topbar' ); ?>
+		<?php get_template_part( 'partials/nav', 'offcanvas' ); ?>
 
 	<div class="off-canvas-wrap">
 		<div class="inner-wrap">
@@ -46,15 +50,24 @@
 	
 					<div id="inner-header" class="row">
 						<div class="large-12 columns">
-							<p id="logo"><a href="<?php echo home_url(); ?>" rel="nofollow"><?php bloginfo('name'); ?></a></p>
-							<p class="description"><?php  bloginfo('description'); ?></p>
+							<!--<p id="logo"><a href="<?php echo home_url(); ?>" rel="nofollow"><?php bloginfo('name'); ?></a></p>
+							<p class="description"><?php  bloginfo('description'); ?></p>-->
 						</div>
-						
-						<?php get_template_part( 'partials/nav', 'topbar' ); ?>
-						
-						<?php get_template_part( 'partials/nav', 'offcanvas' ); ?>
-						
+												
 					</div> <!-- end #inner-header -->
-	
+		<?php 
+			if(is_front_page()) {
+				print '<div id="clouds">
+							<div id="clouds-logo">
+							</div>
+							<span class="motto">Take control of your data</span>
+						</div>'; 
+			}
+		?>
 				</header> <!-- end header -->
-			
+
+		<?php 
+			if(is_front_page()) {
+				//get_sidebar('splash'); 
+			}
+		?>

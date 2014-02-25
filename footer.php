@@ -3,15 +3,23 @@
 				<div id="inner-footer" class="row clearfix">
 				
 					<div class="large-12 medium-12 columns">
-						<nav role="navigation">
-    						<?php joints_footer_links(); ?>
-    					</nav>
+						<!--<nav role="navigation">
+    						<?php //joints_footer_links(); ?>
+    					</nav>-->
+						<?php if ( is_active_sidebar( 'footer1' ) ) : ?>
+							<?php dynamic_sidebar( 'footer1' ); ?>
+						<?php endif; ?>
+						<?php if ( is_active_sidebar( 'footer2' ) ) : ?>
+							<?php dynamic_sidebar( 'footer2' ); ?>
+						<?php endif; ?>
+						<?php if ( is_active_sidebar( 'footer3' ) ) : ?>
+							<?php dynamic_sidebar( 'footer3' ); ?>
+						<?php endif; ?>
+						<?php if ( is_active_sidebar( 'footer4' ) ) : ?>
+							<?php dynamic_sidebar( 'footer4' ); ?>
+						<?php endif; ?>
     				</div>
-	               
-	                <div class="large-12 medium-12 columns">		
-						<p class="source-org copyright">&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>.</p>
-					</div>
-				
+	               				
 				</div> <!-- end #inner-footer -->
 				
 			</footer> <!-- end footer -->

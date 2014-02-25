@@ -16,6 +16,112 @@ body {
 
 }
 
+/*********************
+Search STYLES
+*********************/
+.search-bar {
+	padding: 0px;
+	height:30px;
+	clear:both;
+	form {
+		float:right;
+	}
+	ul{
+		position:relative;
+	    float:right;
+		list-style-type: none;
+		padding: 0px;
+		margin: 0px;
+		li {
+			padding: 0px;
+			margin: 0px;
+			display: inline;
+		}
+	}
+}
+.search-icon {
+	float:right;
+	padding-top: 10px;
+}
+
+
+input[type="search"] {
+	color: #ffffff;
+	margin: 0px;
+	margin-right: 25px;
+	margin-top: 2px;
+	width:50px;
+	height:18px;
+	padding:0px;
+	padding-left:5px;
+	background-color: transparent;
+	border: 0px solid black;
+	box-shadow: 0px 0px 0px rgba(0, 0, 0, 0) inset;
+
+	font-size:14px;
+	/*color:rgb(150,150,150);*/
+
+
+	-webkit-transition:width 0.5s ease-in-out;
+	   -moz-transition:width 0.5s ease-in-out;
+	        transition:width 0.5s ease-in-out;
+}
+ 
+input[type="search"]:focus,
+input[type="search"]:active {
+	color: $primary-color;
+    width:200px;
+    background-color: #fff;
+	-webkit-border-radius:8px;
+    -moz-border-radius:12px;
+        border-radius:12px;
+
+/*
+    -webkit-box-shadow:4px 4px 8px rgb(220,220,220);
+       -moz-box-shadow:4px 4px 8px rgb(220,220,220);
+            box-shadow:4px 4px 8px rgb(220,220,220);
+ */
+
+}
+.sb-search-submit {
+	display: none;
+}
+
+#clouds {
+	background-image: url('http://localhost:8888/iRODS/wp-content/themes/irods-wp-theme/library/images/lines-repeat1.png'),url('http://localhost:8888/iRODS/wp-content/themes/irods-wp-theme/library/images/irods-bg.jpg');
+	background-position: bottom left, bottom center;
+	background-repeat: repeat-x, no-repeat;
+	background-size: auto, cover;
+	color: $primary-color;
+	text-align: center;
+	margin-bottom: 50px;
+	padding-top: 120px;
+	min-height: 100px;
+	max-height: 442px;
+	padding-bottom: 15%;
+
+
+}
+#clouds-logo {
+	background-image: url('http://localhost:8888/iRODS/wp-content/themes/irods-wp-theme/library/images/irods-logo-main.png');
+	background-position: top center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	min-height: 10px;
+	max-height: 164px;
+	padding-bottom: 10%;
+	width: 70%;
+	margin: auto;
+	margin-bottom: 20px;
+}
+.motto {
+	color: $secondary-color;
+	font-family: Novecentowide-Bold;
+	letter-spacing: 5px;
+}
+
+
+
 /********************
 WORDPRESS BODY CLASSES
 style a page via class
@@ -71,12 +177,11 @@ LINK STYLES
 *********************/
 
 a, a:visited {
-
+	color: $secondary-color;
 
 	/*adds highlight on hover */
 	&:hover, &:focus {
-		background: $primary-color;
-		color: #fff;
+		color: $primary-color;
 	}
 
 	/* on click */
@@ -115,6 +220,9 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
 }
 
 h1, .h1 {
+
+	color: $secondary-color;
+	border-bottom: 5px solid $primary-color;
 
 }
 
@@ -623,9 +731,73 @@ SIDEBARS & ASIDES
 	#searchsubmit {
 	}
 
-	.widgettitle {}
+
+	.footer-widget-title {
+		color: white;
+		font-size: 19pt;
+    	font-family: Novecentowide-Medium;
+    	font-weight: normal;
+	}
+
+	.footer {
+		background-image: url("http://localhost:8888/iRODS/wp-content/themes/irods-wp-theme/library/images/lines-repeat2.png");
+        background-repeat: repeat-x;
+        background-color: $footer-color;
+        min-height: 345px;
+
+
+    }
+    .footer-widget {
+    	.menu {
+    		font-family: Novecentowide-Normal;
+    	}
+
+    	font-size: 12pt;
+    	font-weight: lighter;
+      	width: 200px;
+     	float: left;
+      	margin-right: 40px;
+      	color: #FFFFFF;
+      	padding: 20px;
+
+        ul {
+       		list-style: none;
+       		padding: 0px;
+       		margin: 0px;
+       		line-height: 30px;
+        }
+        a:link, a:visited {
+        	font-weight: normal;
+        	color: $secondary-color;
+        }
+        a:hover, a:active {
+        	color: lighten($primary-color, 40%);
+        }
+
+    }
+
+	.widgettitle {
+		font-family: Novecentowide-Normal;
+		font-size: 15pt;
+		color: white;
+	}
 
 	.widget {
+		background-color: $secondary-color;
+		color: white;
+    	padding: 20px;
+    	font-size: 10pt;
+    	font-weight: lighter;
+    	line-height: 13pt;
+
+    	a:link, a:visited {
+    		color: #FFFFFF;
+    		font-weight: normal;
+    	}
+    	a:hover, a:active{
+    		color: $primary-color;
+    		background-color: transparent;
+    	}
 
 		ul {
 			margin: 0;

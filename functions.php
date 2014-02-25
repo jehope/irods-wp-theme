@@ -153,6 +153,64 @@ function joints_register_sidebars() {
 		'after_title' => '</h4>',
 	));
 
+	register_sidebar(array(
+		'id' => 'splash',
+		'name' => __('Splash', 'jointstheme'),
+		'description' => __('The Splash.', 'jointstheme'),
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div>',
+		'before_title' => '<h4 class="widgettitle">',
+		'after_title' => '</h4>',
+	));
+
+	register_sidebar(array(
+		'id' => 'footer1',
+		'name' => __('Footer1', 'jointstheme'),
+		'description' => __('Footer 1.', 'jointstheme'),
+		'before_widget' => '<div id="%1$s" class="footer-widget">',
+		'after_widget' => '</div>',
+		'before_title' => '<h4 class="footer-widget-title">',
+		'after_title' => '</h4>',
+	));
+		register_sidebar(array(
+		'id' => 'footer2',
+		'name' => __('Footer2', 'jointstheme'),
+		'description' => __('Footer 2.', 'jointstheme'),
+		'before_widget' => '<div id="%1$s" class="footer-widget">',
+		'after_widget' => '</div>',
+		'before_title' => '<h4 class="footer-widget-title">',
+		'after_title' => '</h4>',
+	));
+	register_sidebar(array(
+		'id' => 'footer3',
+		'name' => __('Footer3', 'jointstheme'),
+		'description' => __('Footer 3.', 'jointstheme'),
+		'before_widget' => '<div id="%1$s" class="footer-widget">',
+		'after_widget' => '</div>',
+		'before_title' => '<h4 class="footer-widget-title">',
+		'after_title' => '</h4>',
+	));
+
+	register_sidebar(array(
+		'id' => 'footer4',
+		'name' => __('Footer4', 'jointstheme'),
+		'description' => __('Footer 4.', 'jointstheme'),
+		'before_widget' => '<div id="%1$s" class="footer-widget footer-logo-widget">',
+		'after_widget' => '</div>',
+		'before_title' => '<h4 class="footer-widget-title">',
+		'after_title' => '</h4>',
+	));
+
+function search_form_no_filters() {
+  // look for local searchform template
+  $search_form_template = locate_template( 'searchform.php' );
+  if ( '' !== $search_form_template ) {
+    // searchform.php exists, remove all filters
+    remove_all_filters('get_search_form');
+  }
+}
+add_action('pre_get_search_form', 'search_form_no_filters');
+
 	/*
 	to add more sidebars or widgetized areas, just copy
 	and edit the above sidebar code. In order to call

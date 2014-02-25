@@ -7,7 +7,7 @@
 				<!-- Title Area -->
 				<li class="name">
 					 <a href="<?php echo home_url(); ?>" rel="nofollow">
-					 		<img src="wp-content/themes/irods-wp-theme/library/images/irods-upper-logo.png" />
+					 		<img src="<?php echo get_template_directory_uri(); ?>/library/images/irods-upper-logo.png" />
 					 </a>
 					<!--<h2> <a href="<?php echo home_url(); ?>" rel="nofollow"><?php bloginfo('name'); ?></a></h2>-->
 				</li>

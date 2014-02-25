@@ -88,7 +88,7 @@ input[type="search"]:active {
 }
 
 #clouds {
-	background-image: url('http://localhost:8888/iRODS/wp-content/themes/irods-wp-theme/library/images/lines-repeat1.png'),url('http://localhost:8888/iRODS/wp-content/themes/irods-wp-theme/library/images/irods-bg.jpg');
+	background-image: url('../images/lines-repeat1.png'),url('../images/irods-bg.jpg');
 	background-position: bottom left, bottom center;
 	background-repeat: repeat-x, no-repeat;
 	background-size: auto, cover;
@@ -103,7 +103,7 @@ input[type="search"]:active {
 
 }
 #clouds-logo {
-	background-image: url('http://localhost:8888/iRODS/wp-content/themes/irods-wp-theme/library/images/irods-logo-main.png');
+	background-image: url('../images/irods-logo-main.png');
 	background-position: top center;
 	background-repeat: no-repeat;
 	background-size: contain;
@@ -740,7 +740,7 @@ SIDEBARS & ASIDES
 	}
 
 	.footer {
-		background-image: url("http://localhost:8888/iRODS/wp-content/themes/irods-wp-theme/library/images/lines-repeat2.png");
+		background-image: url("../images/lines-repeat2.png");
         background-repeat: repeat-x;
         background-color: $footer-color;
         min-height: 345px;

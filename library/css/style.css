@@ -6091,7 +6091,13 @@ HEADER STYLES
 #logo {
   margin: 0.57em 0 0.17em;
   font-size: 2.75rem;
-  font-weight: bold; }
+  font-weight: bold;
+  background: url(../images/iRODS-Logo.png) no-repeat top left; }
+  #logo a {
+    width: 400px;
+    height: 80px;
+    display: inline-block;
+    opacity: 0; }
 
 /*********************
 NAVIGATION STYLES

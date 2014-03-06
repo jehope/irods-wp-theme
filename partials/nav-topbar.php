@@ -1,5 +1,5 @@
 <div class="large-12 columns show-for-medium-up">
-	<div class="contain-to-grid sticky">
+	<div class="sticky">
 		<nav class="top-bar" data-topbar>
 		<?php get_search_form(); ?>
 
@@ -9,20 +9,15 @@
 					 <a href="<?php echo home_url(); ?>" rel="nofollow">
 					 		<img src="<?php echo get_template_directory_uri(); ?>/library/images/irods-upper-logo.png" />
 					 </a>
-					<!--<h2> <a href="<?php echo home_url(); ?>" rel="nofollow"><?php bloginfo('name'); ?></a></h2>-->
 				</li>
 				<li class="toggle-topbar menu-icon">
 					<a href="#"><span>Menu</span></a>
 				</li>
 			</ul>		
 			<section class="top-bar-section">
-				<ul style="float: left;">
-					<li>
-						<a href="" ><span class="wiki-span">WIKI</span></a>
-					</li>
-				</ul>
 				<?php joints_main_nav(); ?>
 			</section>
 		</nav>
 	</div>
 </div>
+

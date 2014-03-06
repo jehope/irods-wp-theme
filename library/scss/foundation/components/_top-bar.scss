@@ -87,7 +87,6 @@ meta.foundation-mq-topbar {
       width: 100%;
 
       background-color: $topbar-bg-color;
-      height: 90px;
 
       .top-bar { 
         margin-bottom: $topbar-margin-bottom; 
@@ -124,12 +123,13 @@ meta.foundation-mq-topbar {
 
     .top-bar {
       overflow: hidden;
-      height: $topbar-height;
+      padding-right: 10px;
+      padding-left: 25px;
+      padding-bottom: $topbar-height;
       line-height: $topbar-height;
       position: relative;
       background: $topbar-bg;
       margin: 0px;
-      padding: 0px;
       margin-bottom: $topbar-margin-bottom;
 
       // Topbar Global list Styles
@@ -256,7 +256,6 @@ meta.foundation-mq-topbar {
           }
         }
       }
-      
 
 
     }
@@ -277,6 +276,7 @@ meta.foundation-mq-topbar {
         font-size: $rem-base;
         margin: 0;
       }
+      
 
       .divider,
       [role="separator"] {
@@ -286,7 +286,7 @@ meta.foundation-mq-topbar {
         width: 100%;
       }
 
-      ul li {
+      ul li{
         & > a {
           display: block;
           width: 100%;
@@ -327,36 +327,25 @@ meta.foundation-mq-topbar {
           }
 
         }
-        .wiki-span {
-            background-color: $primary-color;
-            color: #fff;
-            padding: 3px;
-            padding-left:10px;
-            padding-right: 10px;
-
-        }
-
 
         // Apply the hover link color when it has that class
         &:hover > a {
           background: $topbar-link-bg-hover;
           color: $topbar-link-color-hover;
-          .wiki-span {
-            background-color: darken($primary-color, 40%);
-            color: #fff;
-        }
-
-
         }
 
         // Apply the active link color when it has that class
-        &.active > a {
-          background: $topbar-link-bg-active;
+        &.first-item-in-menu > a {
+            background-color: $primary-color;
+            color: #fff;
+
+
           &:hover {
-                background: $topbar-link-bg-active-hover;
+            background-color: darken($primary-color, 40%);
           }
         }
       }
+
 
       // Add some extra padding for list items contains buttons
       .has-form { padding: $topbar-height / 3; }

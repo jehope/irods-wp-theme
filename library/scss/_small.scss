@@ -220,10 +220,11 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
 }
 
 h1, .h1 {
-
+	
+}
+.page-title {
 	color: $secondary-color;
 	border-bottom: 5px solid $primary-color;
-
 }
 
 h2, .h2 {
@@ -291,6 +292,8 @@ POSTS & CONTENT STYLES
 *********************/
 
 #content {
+	padding-left: 20px;
+	padding-right: 20px;
 
 }
 
@@ -731,7 +734,6 @@ SIDEBARS & ASIDES
 	#searchsubmit {
 	}
 
-
 	.footer-widget-title {
 		color: white;
 		font-size: 19pt;
@@ -751,12 +753,11 @@ SIDEBARS & ASIDES
     	.menu {
     		font-family: Novecentowide-Normal;
     	}
-
     	font-size: 12pt;
     	font-weight: lighter;
       	width: 200px;
-     	float: left;
       	margin-right: 40px;
+      	float: left;
       	color: #FFFFFF;
       	padding: 20px;
 

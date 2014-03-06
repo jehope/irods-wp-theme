@@ -84,6 +84,13 @@ register_nav_menus(
 	)
 );
 
+
+function wpb_first_and_last_menu_class($items) {
+    $items[1]->classes[] = 'first-item-in-menu';
+    $items[count($items)]->classes[] = 'last-item-in-menu';
+    return $items;
+}
+add_filter('wp_nav_menu_objects', 'wpb_first_and_last_menu_class');
 // the main menu
 function joints_main_nav() {
 	// display the wp3 menu if available
@@ -99,7 +106,11 @@ function joints_main_nav() {
         'link_after' => '',                             // after each link
     	'fallback_cb' => 'joints_main_nav_fallback'      // fallback function
 	));
+
 } /* end joints main nav */
+
+
+
 
 // the footer menu (should you choose to use one)
 function joints_footer_links() {

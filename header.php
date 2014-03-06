@@ -39,15 +39,15 @@
 	<body <?php body_class(); ?>>
 		
 		
-		<?php get_template_part( 'partials/nav', 'topbar' ); ?>
-		<?php get_template_part( 'partials/nav', 'offcanvas' ); ?>
 
 	<div class="off-canvas-wrap">
 		<div class="inner-wrap">
 			<div id="container">
 	
 				<header class="header" role="banner">
-	
+			<?php get_template_part( 'partials/nav', 'topbar' ); ?>
+		<?php get_template_part( 'partials/nav', 'offcanvas' ); ?>
+
 					<div id="inner-header" class="row">
 						<div class="large-12 columns">
 							<!--<p id="logo"><a href="<?php echo home_url(); ?>" rel="nofollow"><?php bloginfo('name'); ?></a></p>

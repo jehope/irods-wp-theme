@@ -11,11 +11,38 @@ Styles apply to 40.063em and up.
 /*********************
 NAVIGATION STYLES
 *********************/
-
+#clouds {
+	background-image: url('../images/lines-repeat1.png'),url('../images/irods-bg.jpg');
+	background-position: bottom left, bottom center;
+	background-repeat: repeat-x, no-repeat;
+	background-size: auto, cover;
+	color: $primary-color;
+	text-align: center;
+	margin-bottom: 50px;
+	padding-top: 120px;
+	min-height: 100px;
+	max-height: 442px;
+	padding-bottom: 13%;
+}
+#clouds-logo {
+	background-image: url('../images/irods-logo-main.png');
+	background-position: top center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	max-height: 164px;
+	padding-bottom: 10%;
+	width: 80%;
+	margin: auto;
+	margin-bottom: 20px;
+}
 /*********************
 POSTS & CONTENT STYLES
 *********************/
 
+.medium-9 {
+	padding-right: 2%;
+
+}
 /* entry content */
 .entry-content {
 			
@@ -43,10 +70,14 @@ POSTS & CONTENT STYLES
 /*********************
 SIDEBARS & ASIDES
 *********************/
+.sidebar {
+	margin-top: 0px;
+}
 
 	.widget {
 		padding: 25px;
 		margin: 0 0 3em 0;
+
 	}
 
 /*********************
@@ -61,13 +92,19 @@ do they need tweaking?
 	padding-top: 40px;
 
 }
-.footer-logo-widget {
-	max-width: 230px;
+
+
+.footer-widget {
+	width:26%;
 	padding: 20px;
-	padding-left: 60px;
+	float:left;
+}
+  .footer-logo-widget {
 	border-left: 1px solid #FFF;
 	height: 250px;
-}
+	width:22%;
+  }
+
 
 .footer-links {
 	ul {

@@ -51,14 +51,14 @@ input[type="search"] {
 	margin-right: 25px;
 	margin-top: 2px;
 	width:50px;
-	height:18px;
-	padding:0px;
+	height:20px;
+	padding:2px;
 	padding-left:5px;
 	background-color: transparent;
 	border: 0px solid black;
 	box-shadow: 0px 0px 0px rgba(0, 0, 0, 0) inset;
 
-	font-size:14px;
+	font-size:12px;
 	/*color:rgb(150,150,150);*/
 
 
@@ -99,18 +99,16 @@ input[type="search"]:active {
 	min-height: 100px;
 	max-height: 442px;
 	padding-bottom: 15%;
-
-
 }
 #clouds-logo {
 	background-image: url('../images/irods-logo-main.png');
 	background-position: top center;
 	background-repeat: no-repeat;
 	background-size: contain;
-	min-height: 10px;
+	min-height: 70px;
 	max-height: 164px;
 	padding-bottom: 10%;
-	width: 70%;
+	min-width: 200px;
 	margin: auto;
 	margin-bottom: 20px;
 }
@@ -248,7 +246,9 @@ HEADER STYLES
 *********************/
 
 .header {
-	margin-bottom: 20px;
+	margin-bottom: 30px;
+	background-color: $secondary-color;
+
 		#inner-header {
 			li {
 				list-style: none;
@@ -256,6 +256,7 @@ HEADER STYLES
 			.off-canvas-list {
 				ul {
 					margin-left: 0;
+					list-style-type: none;
 					.dropdown {
 						margin-left: 20px;
 					}
@@ -263,6 +264,10 @@ HEADER STYLES
 			}
 		}
 }
+.menu-item {
+	list-style: none;
+}
+
 
 	#logo {
     margin: 0.57em 0 0.17em;
@@ -326,7 +331,8 @@ POSTS & CONTENT STYLES
 		.post {}            /* general post style */
 		.page {}            /* general article on a page style */
 		.attachment {}      /* general style on an attatchment */
-		.sticky {}          /* sticky post style */
+		.sticky {
+		}          /* sticky post style */
 		.hentry {}          /* hentry class */
 		.category-slug {}   /* style by category (i.e. category-videos) */
 		.tag-slug {}        /* style by tag (i.e. tag-news) */
@@ -736,6 +742,7 @@ SIDEBARS & ASIDES
 *********************/
 
 .sidebar {
+	margin-top: 15px;
 }
 
 	#searchsubmit {
@@ -753,6 +760,7 @@ SIDEBARS & ASIDES
         background-repeat: repeat-x;
         background-color: $footer-color;
         min-height: 345px;
+        padding-top: 40px;
 
 
     }
@@ -762,12 +770,10 @@ SIDEBARS & ASIDES
     	}
     	font-size: 12pt;
     	font-weight: lighter;
-      	width: 200px;
-      	margin-right: 40px;
-      	float: left;
       	color: #FFFFFF;
       	padding: 20px;
-
+      	margin: auto;
+      	width: 200px;
         ul {
        		list-style: none;
        		padding: 0px;
@@ -791,6 +797,7 @@ SIDEBARS & ASIDES
 	}
 
 	.widget {
+		min-width: 200px;
 		background-color: $secondary-color;
 		color: white;
     	padding: 20px;

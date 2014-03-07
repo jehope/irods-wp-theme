@@ -96,6 +96,12 @@ meta.foundation-mq-topbar {
 
     // Wrapped around .top-bar to make it stick to the top
     .fixed {
+      background-color: $secondary-color;
+      .top-bar{
+            max-width: 62.5rem;
+            margin: auto;
+
+          }
       width: 100%;
       #{$default-float}: 0;
       position: fixed;
@@ -121,15 +127,20 @@ meta.foundation-mq-topbar {
       }
     }
 
+
+@media (max-width: 1020px) {
+    .top-bar {
+      margin-left: 20px;
+      margin-right: 20px;
+  }
+}
     .top-bar {
       overflow: hidden;
       padding-right: 10px;
-      padding-left: 25px;
       padding-bottom: $topbar-height;
       line-height: $topbar-height;
       position: relative;
       background: $topbar-bg;
-      margin: 0px;
       margin-bottom: $topbar-margin-bottom;
 
       // Topbar Global list Styles
@@ -143,7 +154,15 @@ meta.foundation-mq-topbar {
       form,
       input { margin-bottom: 0; }
 
-      input { height: auto; padding-top: .35rem; padding-bottom: .35rem; font-size: $topbar-button-font-size; }
+      input { 
+        height: auto; 
+        padding-top: .35rem; 
+        padding-bottom: .35rem; 
+        font-size: $topbar-button-font-size;
+/*       line-height: normal !important; */
+        line-height: normal ;
+
+      }
 
       .button { 
         padding-top: .45rem; 
@@ -335,6 +354,15 @@ meta.foundation-mq-topbar {
         }
 
         // Apply the active link color when it has that class
+        &.active > a {
+            background: $topbar-link-bg-active;
+            color: darken($topbar-link-color-active, 30%);
+
+          &:hover {
+            color: $topbar-link-color-hover;
+          }
+        }
+
         &.first-item-in-menu > a {
             background-color: $primary-color;
             color: #fff;

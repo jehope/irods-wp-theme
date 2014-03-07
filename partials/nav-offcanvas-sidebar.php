@@ -40,7 +40,7 @@
 <aside class="left-off-canvas-menu show-for-small-only">
 	<ul class="off-canvas-list">
 		<li><label>Navigation</label></li>
-			<?php joints_main_nav(); ?>    
+		<li><?php joints_main_nav(); ?> </li>   
 	</ul>
 </aside>
 

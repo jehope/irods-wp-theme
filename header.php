@@ -63,8 +63,3 @@
 
 
 				</header> <!-- end header -->
-		<?php 
-			if(is_front_page()) {
-				//get_sidebar('splash'); 
-			}
-		?>

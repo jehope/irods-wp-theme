@@ -28,10 +28,3 @@
 	</ul>
   </div>
 </div>
-
-
-<div id="splash">
-		<?php if ( is_active_sidebar( 'splash' ) ) : ?>
-			<?php dynamic_sidebar( 'splash' ); ?>
-		<?php endif; ?>
-</div>

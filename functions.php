@@ -165,16 +165,6 @@ function joints_register_sidebars() {
 	));
 
 	register_sidebar(array(
-		'id' => 'splash',
-		'name' => __('Splash', 'jointstheme'),
-		'description' => __('The Splash.', 'jointstheme'),
-		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		'after_widget' => '</div>',
-		'before_title' => '<h4 class="widgettitle">',
-		'after_title' => '</h4>',
-	));
-
-	register_sidebar(array(
 		'id' => 'footer1',
 		'name' => __('Footer1', 'jointstheme'),
 		'description' => __('Footer 1.', 'jointstheme'),

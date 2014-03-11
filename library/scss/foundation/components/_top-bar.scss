@@ -93,14 +93,10 @@ meta.foundation-mq-topbar {
       }
 
     }
-
     // Wrapped around .top-bar to make it stick to the top
     .fixed {
       background-color: $secondary-color;
       .top-bar{
-            max-width: 62.5rem;
-            margin: auto;
-
           }
       width: 100%;
       #{$default-float}: 0;
@@ -127,16 +123,24 @@ meta.foundation-mq-topbar {
       }
     }
 
+@media (max-width: 1045px) {
+  .top-bar {
+      padding-left: 20px;
+      padding-right: 30px;
+  }
+}
 
-@media (max-width: 1020px) {
-    .top-bar {
-      margin-left: 20px;
-      margin-right: 20px;
+@media (min-width: 1045px) {
+  .top-bar {
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
     .top-bar {
+      margin: auto;
+      width: 100%;
+      max-width: 62.5rem;
       overflow: hidden;
-      padding-right: 10px;
       padding-bottom: $topbar-height;
       line-height: $topbar-height;
       position: relative;

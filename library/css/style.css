@@ -448,7 +448,7 @@ really slow down your CSS. Don't overdo it.
 *********************/
 /* @include css-gradient(#dfdfdf,#f8f8f8); */
 meta.foundation-mq-small {
-  font-family: "/only screen and (max-width: 45.5em)/";
+  font-family: "/only screen and (max-width: 45.56em)/";
   width: 0em; }
 
 meta.foundation-mq-medium {
@@ -2743,7 +2743,7 @@ button, .button {
     right: 20px;
     padding-left: 0;
     padding-top: 0; } }
-@media only screen and (max-width: 45.5em) {
+@media only screen and (max-width: 45.56em) {
   .f-dropdown {
     max-width: 100%;
     left: 0; } }
@@ -3727,7 +3727,7 @@ kbd {
     display: inherit; }
   .touch .orbit-bullets {
     display: block; } }
-@media only screen and (max-width: 45.5em) {
+@media only screen and (max-width: 45.56em) {
   .orbit-stack-on-small .orbit-slides-container {
     height: auto !important; }
   .orbit-stack-on-small .orbit-slides-container > * {
@@ -4810,9 +4810,6 @@ meta.foundation-mq-topbar {
   position: fixed;
   top: 0;
   z-index: 99; }
-  .fixed .top-bar {
-    max-width: 62.5rem;
-    margin: auto; }
   .fixed.expanded:not(.top-bar) {
     overflow-y: auto;
     height: auto;
@@ -4826,13 +4823,19 @@ meta.foundation-mq-topbar {
       z-index: 98;
       margin-top: 35px; }
 
-@media (max-width: 1020px) {
+@media (max-width: 1045px) {
   .top-bar {
-    margin-left: 20px;
-    margin-right: 20px; } }
+    padding-left: 20px;
+    padding-right: 30px; } }
+@media (min-width: 1045px) {
+  .top-bar {
+    padding-left: 0px;
+    padding-right: 0px; } }
 .top-bar {
+  margin: auto;
+  width: 100%;
+  max-width: 62.5rem;
   overflow: hidden;
-  padding-right: 10px;
   padding-bottom: 35px;
   line-height: 35px;
   position: relative;
@@ -5985,10 +5988,18 @@ input[type="search"]:active {
   text-align: center;
   margin-bottom: 50px;
   padding-top: 120px;
-  min-height: 100px;
   max-height: 442px;
   padding-bottom: 15%; }
 
+@media (max-width: 570px) {
+  #clouds {
+    height: 242px;
+    padding-top: 70px; } }
+@media (min-width: 730px) {
+  #clouds-logo {
+    padding-bottom: 13%;
+    padding-top: 3%;
+    max-width: 650px; } }
 #clouds-logo {
   background-image: url("../images/irods-logo-main.png");
   background-position: top center;
@@ -5997,6 +6008,7 @@ input[type="search"]:active {
   min-height: 70px;
   max-height: 164px;
   padding-bottom: 10%;
+  padding-top: 3%;
   min-width: 200px;
   margin: auto;
   margin-bottom: 20px; }

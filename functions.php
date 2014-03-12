@@ -372,7 +372,6 @@ function register_foo_widget() {
 }
 add_action( 'widgets_init', 'register_foo_widget' );
 
-
 /*********************
 COMMENT LAYOUT
 *********************/
@@ -411,5 +410,7 @@ function joints_comments($comment, $args, $depth) {
 	<!-- </li> is added by WordPress automatically -->
 <?php
 } // don't remove this bracket!
+
+
 
 ?>

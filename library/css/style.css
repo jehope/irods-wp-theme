@@ -5999,6 +5999,11 @@ GENERAL STYLES
 #main {
   padding-right: 0px; }
 
+button {
+  padding-top: 6px;
+  padding-bottom: 8px;
+  font-size: 10pt; }
+
 /*********************
 Search STYLES
 *********************/
@@ -6489,7 +6494,8 @@ SIDEBARS & ASIDES
     margin-bottom: 12px; }
 
 .recents-post-date {
-  font-size: 9pt; }
+  font-size: 9pt;
+  font-weight: bold; }
 
 .recents-posts-link {
   font-size: 9pt;

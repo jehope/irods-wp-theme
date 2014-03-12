@@ -9,7 +9,7 @@
 					
 	<section class="entry-content clearfix" itemprop="articleBody">
 		<?php the_post_thumbnail('full'); ?>
-		<?php the_content(); ?>
+		<?php the_content('<button type="button">Read More</button>'); ?>
 	</section> <!-- end article section -->
 						
 	<footer class="article-footer">

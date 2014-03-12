@@ -11,7 +11,7 @@ $topbar-bg-color: #333 !default;
 $topbar-bg: $topbar-bg-color !default;
 
 // Height and margin
-$topbar-height: 90px !default;
+$topbar-height: 70px !default;
 $topbar-margin-bottom: 0 !default;
 
 // Control Input height for top bar
@@ -141,7 +141,7 @@ meta.foundation-mq-topbar {
       width: 100%;
       max-width: 62.5rem;
       overflow: hidden;
-      padding-bottom: $topbar-height;
+      padding-bottom: 25px;
       line-height: $topbar-height;
       position: relative;
       background: $topbar-bg;
@@ -314,8 +314,9 @@ meta.foundation-mq-topbar {
           display: block;
           width: 100%;
           color: $topbar-link-color;
-          padding: 0px 0 12px 0;
+          padding: 0px 0 0 0;
           padding-#{$default-float}: $topbar-height / 3;
+          padding-right: 0px;
           font-family: $topbar-link-font-family;
           font-size: $topbar-link-font-size;
           font-weight: $topbar-link-weight;
@@ -360,7 +361,7 @@ meta.foundation-mq-topbar {
         // Apply the active link color when it has that class
         &.active > a {
             background: $topbar-link-bg-active;
-            color: darken($topbar-link-color-active, 30%);
+            color: lighten($topbar-link-color-hover, 20%);
 
           &:hover {
             color: $topbar-link-color-hover;
@@ -369,7 +370,9 @@ meta.foundation-mq-topbar {
 
         &.first-item-in-menu > a {
             background-color: $primary-color;
-            color: #fff;
+            color: #fff; 
+            padding-left: 8px;
+            padding-right: 8px;
 
 
           &:hover {
@@ -500,7 +503,8 @@ meta.foundation-mq-topbar {
             }
           }
           a:not(.button) {
-            padding: 0 $topbar-height / 2;
+            padding-left: 30px;
+            padding-right: 0px;
             line-height: $topbar-height;
             background: $topbar-bg;
             &:hover { background: $topbar-link-bg-hover; }

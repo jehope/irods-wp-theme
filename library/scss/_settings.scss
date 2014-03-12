@@ -1045,7 +1045,7 @@ $topbar-bg: $secondary-color;
 
 // Height and margin
 $topbar-height: 35px;
-$topbar-margin-bottom:36;
+$topbar-margin-bottom:0px;
 
 // Control Input height for top bar
 
@@ -1065,8 +1065,8 @@ $topbar-dropdown-link-bg: $secondary-color;
 $topbar-link-color: #fff;
 $topbar-link-color-hover: darken($primary-color, 15%);
 $topbar-link-color-active: #fff;
-// $topbar-link-weight: bold;
-$topbar-link-font-size: 10pt;
+$topbar-link-weight: light;
+$topbar-link-font-size: 10.5pt;
 $topbar-link-hover-lightness: -10%; // Darken by 10%
 $topbar-link-bg-hover: $topbar-dropdown-bg;
 $topbar-link-bg-active: $topbar-dropdown-bg;

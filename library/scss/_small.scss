@@ -15,14 +15,19 @@ GENERAL STYLES
 body {
 
 }
+#main {
+	padding-right: 0px;
+}
 
 /*********************
 Search STYLES
 *********************/
 .search-bar {
 	padding: 0px;
-	height:30px;
+	padding-top: 10px;
+	height:42px;
 	clear:both;
+	width: 100%;
 	form {
 		float:right;
 	}
@@ -53,7 +58,7 @@ input[type="search"] {
 	width:50px;
 	height:20px;
 	padding:2px;
-	padding-left:5px;
+	padding-left:8px;
 	background-color: transparent;
 	border: 0px solid black;
 	box-shadow: 0px 0px 0px rgba(0, 0, 0, 0) inset;
@@ -83,6 +88,20 @@ input[type="search"]:active {
  */
 
 }
+
+::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #fff;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    #fff;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:    #fff;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:    #fff;
+}
+
 .sb-search-submit {
 	display: none;
 }
@@ -95,45 +114,27 @@ input[type="search"]:active {
 	color: $primary-color;
 	text-align: center;
 	margin-bottom: 50px;
-	padding-top: 120px;
-	max-height: 442px;
-	padding-bottom: 15%;
+	padding-top: 90px;
+	min-height: 100px;
+	max-height: 412px;
+	padding-bottom: 13%;
 }
-@media (max-width: 570px) {
-  #clouds {
-	height: 242px;
-	padding-top: 70px;
-
-  }
-}
-@media (min-width: 730px) {
-  #clouds {
-  }
-  #clouds-logo {
-  	padding-bottom: 13%;
-  	padding-top: 3%;
-  	max-width: 650px;
-
-  }
-}
-
 #clouds-logo {
 	background-image: url('../images/irods-logo-main.png');
 	background-position: top center;
 	background-repeat: no-repeat;
 	background-size: contain;
-	min-height: 70px;
-	max-height: 164px;
-	padding-bottom: 10%;
-	padding-top: 3%;
-	min-width: 200px;
+	padding-bottom: 15%;
+	max-width: 740px;
 	margin: auto;
-	margin-bottom: 20px;
+	margin-bottom: 43px;
 }
+
 .motto {
 	color: $secondary-color;
 	font-family: Novecentowide-Bold;
 	letter-spacing: 5px;
+	font-size: 12pt;
 }
 
 
@@ -240,7 +241,15 @@ h1, .h1 {
 }
 .page-title {
 	color: $secondary-color;
-	border-bottom: 5px solid $primary-color;
+	border-bottom: 6px solid $primary-color;
+}
+.article-header h2, h1 {
+	color: $secondary-color;
+	border-bottom: 6px solid $primary-color;
+	font-size: 37pt;
+	padding-bottom: 17px;
+	margin-bottom: 25px;
+	width: 100%;
 }
 
 h2, .h2 {
@@ -282,6 +291,21 @@ HEADER STYLES
 				}
 			}
 		}
+}
+.mobile-nav-header {
+	img {
+  -webkit-filter: brightness(100%);
+  -webkit-transition: all .3s ease;
+     -moz-transition: all .3s ease;
+       -o-transition: all .3s ease;
+      -ms-transition: all .3s ease;
+          transition: all .3s ease;
+}
+ 
+ img:hover {
+  -webkit-filter: brightness(50%);
+}
+
 }
 .menu-item {
 	list-style: none;
@@ -359,7 +383,7 @@ POSTS & CONTENT STYLES
 		/* post meta */
 		.byline {
 			color: #999;
-
+			font-size: 8.5pt;
 			time {}
 		}
 
@@ -762,6 +786,23 @@ SIDEBARS & ASIDES
 
 .sidebar {
 	margin-top: 15px;
+	.widget{
+		line-height: normal;
+		li {
+			padding-bottom: 0px;
+		}
+
+	}
+	.widgettitle{
+		margin-bottom: 12px;
+	}
+}
+.recents-post-date{
+	font-size: 9pt;
+}
+.recents-posts-link{
+	font-size: 9pt;
+	padding-top: 0px;
 }
 
 	#searchsubmit {
@@ -769,7 +810,7 @@ SIDEBARS & ASIDES
 
 	.footer-widget-title {
 		color: white;
-		font-size: 19pt;
+		font-size: 14pt;
     	font-family: Novecentowide-Medium;
     	font-weight: normal;
 	}
@@ -780,24 +821,32 @@ SIDEBARS & ASIDES
         background-color: $footer-color;
         min-height: 345px;
         padding-top: 40px;
-
-
+        padding-bottom: 50px;
     }
+  .footer-logo-widget {
+  	font-size: 12pt;
+  	line-height: 1.5;
+  }
+
     .footer-widget {
     	.menu {
     		font-family: Novecentowide-Normal;
     	}
-    	font-size: 12pt;
     	font-weight: lighter;
       	color: #FFFFFF;
       	padding: 20px;
+      	padding-top: 30px;
       	margin: auto;
       	width: 200px;
         ul {
+    		font-size: 9pt;
        		list-style: none;
        		padding: 0px;
        		margin: 0px;
        		line-height: 30px;
+       		li {
+       			padding-top: 1px;
+       		}
         }
         a:link, a:visited {
         	font-weight: normal;

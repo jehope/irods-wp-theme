@@ -234,3 +234,39 @@ $total-columns: 12 !default;
     }
   }
 }
+
+@media (min-width: 45.563em) {
+
+.xxlarge-3 {
+  width: 25.7%;
+}
+
+.xxlarge-9 {
+  width: 74.3%;
+}
+
+
+.xlarge-3 {
+  width: 25.7%;
+}
+
+.xlarge-9 {
+  width: 74.3%;
+}
+
+.large-3 {
+  width: 25.7%;
+}
+
+.large-9 {
+  width: 74.3%;
+}
+.medium-3 {
+  width: 25.7%;
+}
+
+.medium-9 {
+  width: 74.3%;
+}
+
+}

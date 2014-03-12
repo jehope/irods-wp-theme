@@ -2,7 +2,7 @@
 	<div class="contain-to-grid">
 		<nav class="tab-bar">
 			<section class="middle tab-bar-section">
-				<h1 class="title"><a href='<?php bloginfo('url');?>'><?php bloginfo('name'); ?></a></h1>
+				<a class='mobile-nav-header' href='<?php bloginfo('url');?>'><img src="<?php echo get_template_directory_uri(); ?>/library/images/irods-upper-logo.png" alt="iRODS"></a>
 			</section>
 			<section class="left-small">
 				<a class="left-off-canvas-toggle menu-icon" ><span></span></a>

@@ -90,6 +90,7 @@ function wpb_first_and_last_menu_class($items) {
     $items[count($items)]->classes[] = 'last-item-in-menu';
     return $items;
 }
+
 add_filter('wp_nav_menu_objects', 'wpb_first_and_last_menu_class');
 // the main menu
 function joints_main_nav() {
@@ -237,6 +238,140 @@ add_action('pre_get_search_form', 'search_form_no_filters');
 
 	*/
 } // don't remove this bracket!
+
+/**
+ * Adds Foo_Widget widget.
+ */
+class Foo_Widget extends WP_Widget {
+///THIS IS THE NEW RECENT POSTS WIDGET BECAUSE THE OTHER ONE DIDN'T DISPLAY THE DATE BEFORE THE TITLE
+	/**
+	 * Register widget with WordPress.
+	 */
+	function __construct() {
+		$widget_ops = array('classname' => 'widget_recent_entries', 'description' => __( "Your site&#8217;s most recent Posts.") );
+		parent::__construct('recent-posts', __('iRODS Recent Posts'), $widget_ops);
+		$this->alt_option_name = 'widget_recent_entries';
+
+		add_action( 'save_post', array($this, 'flush_widget_cache') );
+		add_action( 'deleted_post', array($this, 'flush_widget_cache') );
+		add_action( 'switch_theme', array($this, 'flush_widget_cache') );
+	}
+
+	/**
+	 * Front-end display of widget.
+	 *
+	 * @see WP_Widget::widget()
+	 *
+	 * @param array $args     Widget arguments.
+	 * @param array $instance Saved values from database.
+	 */
+	function widget($args, $instance) {
+		$cache = wp_cache_get('widget_recent_posts', 'widget');
+
+		if ( !is_array($cache) )
+			$cache = array();
+
+		if ( ! isset( $args['widget_id'] ) )
+			$args['widget_id'] = $this->id;
+
+		if ( isset( $cache[ $args['widget_id'] ] ) ) {
+			echo $cache[ $args['widget_id'] ];
+			return;
+		}
+
+		ob_start();
+		extract($args);
+
+		$title = ( ! empty( $instance['title'] ) ) ? $instance['title'] : __( 'Recent Posts' );
+		$title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
+		$number = ( ! empty( $instance['number'] ) ) ? absint( $instance['number'] ) : 10;
+		if ( ! $number )
+ 			$number = 10;
+		$show_date = isset( $instance['show_date'] ) ? $instance['show_date'] : false;
+
+		$r = new WP_Query( apply_filters( 'widget_posts_args', array( 'posts_per_page' => $number, 'no_found_rows' => true, 'post_status' => 'publish', 'ignore_sticky_posts' => true ) ) );
+		if ($r->have_posts()) :
+?>
+		<?php echo $before_widget; ?>
+		<?php if ( $title ) echo $before_title . $title . $after_title; ?>
+		<ul>
+		<?php while ( $r->have_posts() ) : $r->the_post(); ?>
+			<li>
+			<?php if ( $show_date ) : ?>
+				<span class="recents-post-date"><?php echo get_the_date("F j"); ?><br /></span>
+			<?php endif; ?>
+				<a class="recents-posts-link" href="<?php the_permalink(); ?>"><?php get_the_title() ? the_title() : the_ID(); ?></a>
+			</li>
+		<?php endwhile; ?>
+		</ul>
+		<?php echo $after_widget; ?>
+<?php
+		// Reset the global $the_post as this query will have stomped on it
+		wp_reset_postdata();
+
+		endif;
+
+		$cache[$args['widget_id']] = ob_get_flush();
+		wp_cache_set('widget_recent_posts', $cache, 'widget');
+	}
+
+	/**
+	 * Back-end widget form.
+	 *
+	 * @see WP_Widget::form()
+	 *
+	 * @param array $instance Previously saved values from database.
+	 */
+	function form( $instance ) {
+		$title     = isset( $instance['title'] ) ? esc_attr( $instance['title'] ) : '';
+		$number    = isset( $instance['number'] ) ? absint( $instance['number'] ) : 5;
+		$show_date = isset( $instance['show_date'] ) ? (bool) $instance['show_date'] : false;
+?>
+		<p><label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
+		<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $title; ?>" /></p>
+
+		<p><label for="<?php echo $this->get_field_id( 'number' ); ?>"><?php _e( 'Number of posts to show:' ); ?></label>
+		<input id="<?php echo $this->get_field_id( 'number' ); ?>" name="<?php echo $this->get_field_name( 'number' ); ?>" type="text" value="<?php echo $number; ?>" size="3" /></p>
+
+		<p><input class="checkbox" type="checkbox" <?php checked( $show_date ); ?> id="<?php echo $this->get_field_id( 'show_date' ); ?>" name="<?php echo $this->get_field_name( 'show_date' ); ?>" />
+		<label for="<?php echo $this->get_field_id( 'show_date' ); ?>"><?php _e( 'Display post date?' ); ?></label></p>
+<?php
+	}
+
+function flush_widget_cache() {
+		wp_cache_delete('widget_recent_posts', 'widget');
+	}
+	/**
+	 * Sanitize widget form values as they are saved.
+	 *
+	 * @see WP_Widget::update()
+	 *
+	 * @param array $new_instance Values just sent to be saved.
+	 * @param array $old_instance Previously saved values from database.
+	 *
+	 * @return array Updated safe values to be saved.
+	 */
+	function update( $new_instance, $old_instance ) {
+		$instance = $old_instance;
+		$instance['title'] = strip_tags($new_instance['title']);
+		$instance['number'] = (int) $new_instance['number'];
+		$instance['show_date'] = isset( $new_instance['show_date'] ) ? (bool) $new_instance['show_date'] : false;
+		$this->flush_widget_cache();
+
+		$alloptions = wp_cache_get( 'alloptions', 'options' );
+		if ( isset($alloptions['widget_recent_entries']) )
+			delete_option('widget_recent_entries');
+
+		return $instance;
+	}
+} // class Foo_Widget
+
+// register Foo_Widget widget
+function register_foo_widget() {
+    register_widget( 'Foo_Widget' );
+}
+add_action( 'widgets_init', 'register_foo_widget' );
+
 
 /*********************
 COMMENT LAYOUT

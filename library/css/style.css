@@ -1881,6 +1881,30 @@ select {
   .column.xxlarge-uncentered.opposite,
   .columns.xxlarge-uncentered.opposite {
     float: right !important; } }
+@media (min-width: 45.563em) {
+  .xxlarge-3 {
+    width: 25.7%; }
+
+  .xxlarge-9 {
+    width: 74.3%; }
+
+  .xlarge-3 {
+    width: 25.7%; }
+
+  .xlarge-9 {
+    width: 74.3%; }
+
+  .large-3 {
+    width: 25.7%; }
+
+  .large-9 {
+    width: 74.3%; }
+
+  .medium-3 {
+    width: 25.7%; }
+
+  .medium-9 {
+    width: 74.3%; } }
 .accordion {
   *zoom: 1;
   margin-bottom: 0; }
@@ -3279,6 +3303,30 @@ textarea.error {
 label.error {
   color: #f04124; }
 
+@media (min-width: 45.563em) {
+  .xxlarge-3 {
+    width: 25.7%; }
+
+  .xxlarge-9 {
+    width: 74.3%; }
+
+  .xlarge-3 {
+    width: 25.7%; }
+
+  .xlarge-9 {
+    width: 74.3%; }
+
+  .large-3 {
+    width: 25.7%; }
+
+  .large-9 {
+    width: 74.3%; }
+
+  .medium-3 {
+    width: 25.7%; }
+
+  .medium-9 {
+    width: 74.3%; } }
 .inline-list {
   margin: 0 auto 1.0625rem auto;
   margin-left: -1.375rem;
@@ -4792,6 +4840,30 @@ blockquote p {
 
   .show-for-print {
     display: inherit !important; } }
+@media (min-width: 45.563em) {
+  .xxlarge-3 {
+    width: 25.7%; }
+
+  .xxlarge-9 {
+    width: 74.3%; }
+
+  .xlarge-3 {
+    width: 25.7%; }
+
+  .xlarge-9 {
+    width: 74.3%; }
+
+  .large-3 {
+    width: 25.7%; }
+
+  .large-9 {
+    width: 74.3%; }
+
+  .medium-3 {
+    width: 25.7%; }
+
+  .medium-9 {
+    width: 74.3%; } }
 meta.foundation-mq-topbar {
   font-family: "/only screen and (min-width:45.563em)/";
   width: 40.063em; }
@@ -4801,7 +4873,7 @@ meta.foundation-mq-topbar {
   width: 100%;
   background-color: #00a388; }
   .contain-to-grid .top-bar {
-    margin-bottom: 36; }
+    margin-bottom: 0px; }
 
 .fixed {
   background-color: #00a388;
@@ -4836,11 +4908,11 @@ meta.foundation-mq-topbar {
   width: 100%;
   max-width: 62.5rem;
   overflow: hidden;
-  padding-bottom: 35px;
+  padding-bottom: 25px;
   line-height: 35px;
   position: relative;
   background: #00a388;
-  margin-bottom: 36; }
+  margin-bottom: 0px; }
   .top-bar ul {
     margin-bottom: 0;
     list-style: none; }
@@ -4948,15 +5020,16 @@ meta.foundation-mq-topbar {
     display: block;
     width: 100%;
     color: white;
-    padding: 0px 0 12px 0;
+    padding: 0px 0 0 0;
     padding-left: 11.66667px;
+    padding-right: 0px;
     font-family: Novecentowide-Medium;
-    font-size: 10pt;
-    font-weight: normal;
+    font-size: 10.5pt;
+    font-weight: light;
     background: #00a388; }
     .top-bar-section ul li > a.button {
       background: #636363;
-      font-size: 10pt;
+      font-size: 10.5pt;
       padding-right: 11.66667px;
       padding-left: 11.66667px; }
       .top-bar-section ul li > a.button:hover {
@@ -4978,12 +5051,14 @@ meta.foundation-mq-topbar {
     color: #3d3d3d; }
   .top-bar-section ul li.active > a {
     background: #00a388;
-    color: #b3b3b3; }
+    color: #707070; }
     .top-bar-section ul li.active > a:hover {
       color: #3d3d3d; }
   .top-bar-section ul li.first-item-in-menu > a {
     background-color: #636363;
-    color: #fff; }
+    color: #fff;
+    padding-left: 8px;
+    padding-right: 8px; }
     .top-bar-section ul li.first-item-in-menu > a:hover {
       background-color: black; }
   .top-bar-section .has-form {
@@ -5020,7 +5095,7 @@ meta.foundation-mq-topbar {
         font-weight: normal;
         padding: 8px 11.66667px; }
         .top-bar-section .dropdown li a.parent-link {
-          font-weight: normal; }
+          font-weight: light; }
       .top-bar-section .dropdown li.title h5 {
         margin-bottom: 0; }
         .top-bar-section .dropdown li.title h5 a {
@@ -5065,7 +5140,7 @@ meta.foundation-mq-topbar {
   .contain-to-grid .top-bar {
     max-width: 62.5rem;
     margin: 0 auto;
-    margin-bottom: 36; }
+    margin-bottom: 0px; }
 
   .top-bar-section {
     -webkit-transition: none 0 0;
@@ -5084,7 +5159,8 @@ meta.foundation-mq-topbar {
       background: #00a388;
       color: #3d3d3d; }
     .top-bar-section li a:not(.button) {
-      padding: 0 17.5px;
+      padding-left: 30px;
+      padding-right: 0px;
       line-height: 35px;
       background: #00a388; }
       .top-bar-section li a:not(.button):hover {
@@ -5920,13 +5996,18 @@ and will be used across all viewports.
 /*********************
 GENERAL STYLES
 *********************/
+#main {
+  padding-right: 0px; }
+
 /*********************
 Search STYLES
 *********************/
 .search-bar {
   padding: 0px;
-  height: 30px;
-  clear: both; }
+  padding-top: 10px;
+  height: 42px;
+  clear: both;
+  width: 100%; }
   .search-bar form {
     float: right; }
   .search-bar ul {
@@ -5952,7 +6033,7 @@ input[type="search"] {
   width: 50px;
   height: 20px;
   padding: 2px;
-  padding-left: 5px;
+  padding-left: 8px;
   background-color: transparent;
   border: 0px solid black;
   box-shadow: 0px 0px 0px rgba(0, 0, 0, 0) inset;
@@ -5976,6 +6057,22 @@ input[type="search"]:active {
               box-shadow:4px 4px 8px rgb(220,220,220);
    */ }
 
+::-webkit-input-placeholder {
+  /* WebKit browsers */
+  color: #fff; }
+
+:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #fff; }
+
+::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #fff; }
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10+ */
+  color: #fff; }
+
 .sb-search-submit {
   display: none; }
 
@@ -5987,36 +6084,26 @@ input[type="search"]:active {
   color: #636363;
   text-align: center;
   margin-bottom: 50px;
-  padding-top: 120px;
-  max-height: 442px;
-  padding-bottom: 15%; }
+  padding-top: 90px;
+  min-height: 100px;
+  max-height: 412px;
+  padding-bottom: 13%; }
 
-@media (max-width: 570px) {
-  #clouds {
-    height: 242px;
-    padding-top: 70px; } }
-@media (min-width: 730px) {
-  #clouds-logo {
-    padding-bottom: 13%;
-    padding-top: 3%;
-    max-width: 650px; } }
 #clouds-logo {
   background-image: url("../images/irods-logo-main.png");
   background-position: top center;
   background-repeat: no-repeat;
   background-size: contain;
-  min-height: 70px;
-  max-height: 164px;
-  padding-bottom: 10%;
-  padding-top: 3%;
-  min-width: 200px;
+  padding-bottom: 15%;
+  max-width: 740px;
   margin: auto;
-  margin-bottom: 20px; }
+  margin-bottom: 43px; }
 
 .motto {
   color: #00a388;
   font-family: Novecentowide-Bold;
-  letter-spacing: 5px; }
+  letter-spacing: 5px;
+  font-size: 12pt; }
 
 /********************
 WORDPRESS BODY CLASSES
@@ -6099,7 +6186,15 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
 
 .page-title {
   color: #00a388;
-  border-bottom: 5px solid #636363; }
+  border-bottom: 6px solid #636363; }
+
+.article-header h2, h1 {
+  color: #00a388;
+  border-bottom: 6px solid #636363;
+  font-size: 37pt;
+  padding-bottom: 17px;
+  margin-bottom: 25px;
+  width: 100%; }
 
 /*********************
 HEADER STYLES
@@ -6114,6 +6209,16 @@ HEADER STYLES
     list-style-type: none; }
     .header #inner-header .off-canvas-list ul .dropdown {
       margin-left: 20px; }
+
+.mobile-nav-header img {
+  -webkit-filter: brightness(100%);
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  -ms-transition: all .3s ease;
+  transition: all .3s ease; }
+.mobile-nav-header img:hover {
+  -webkit-filter: brightness(50%); }
 
 .menu-item {
   list-style: none; }
@@ -6161,7 +6266,8 @@ POSTS & CONTENT STYLES
 /* style by tag (i.e. tag-news) */
 /* post meta */
 .byline {
-  color: #999; }
+  color: #999;
+  font-size: 8.5pt; }
 
 /* entry content */
 .entry-content {
@@ -6375,10 +6481,23 @@ SIDEBARS & ASIDES
 *********************/
 .sidebar {
   margin-top: 15px; }
+  .sidebar .widget {
+    line-height: normal; }
+    .sidebar .widget li {
+      padding-bottom: 0px; }
+  .sidebar .widgettitle {
+    margin-bottom: 12px; }
+
+.recents-post-date {
+  font-size: 9pt; }
+
+.recents-posts-link {
+  font-size: 9pt;
+  padding-top: 0px; }
 
 .footer-widget-title {
   color: white;
-  font-size: 19pt;
+  font-size: 14pt;
   font-family: Novecentowide-Medium;
   font-weight: normal; }
 
@@ -6387,22 +6506,30 @@ SIDEBARS & ASIDES
   background-repeat: repeat-x;
   background-color: #2a2a2a;
   min-height: 345px;
-  padding-top: 40px; }
+  padding-top: 40px;
+  padding-bottom: 50px; }
+
+.footer-logo-widget {
+  font-size: 12pt;
+  line-height: 1.5; }
 
 .footer-widget {
-  font-size: 12pt;
   font-weight: lighter;
   color: #FFFFFF;
   padding: 20px;
+  padding-top: 30px;
   margin: auto;
   width: 200px; }
   .footer-widget .menu {
     font-family: Novecentowide-Normal; }
   .footer-widget ul {
+    font-size: 9pt;
     list-style: none;
     padding: 0px;
     margin: 0px;
     line-height: 30px; }
+    .footer-widget ul li {
+      padding-top: 1px; }
   .footer-widget a:link, .footer-widget a:visited {
     font-weight: normal;
     color: #00a388; }
@@ -6462,6 +6589,9 @@ MEDIUM
   Styles apply to 40.063em and up.
   
   ******************************************************************/
+  #main {
+    padding-right: 55px; }
+
   /*********************
   NAVIGATION STYLES
   *********************/
@@ -6473,9 +6603,9 @@ MEDIUM
     color: #636363;
     text-align: center;
     margin-bottom: 50px;
-    padding-top: 120px;
+    padding-top: 90px;
     min-height: 100px;
-    max-height: 442px;
+    max-height: 412px;
     padding-bottom: 13%; }
 
   #clouds-logo {
@@ -6483,11 +6613,13 @@ MEDIUM
     background-position: top center;
     background-repeat: no-repeat;
     background-size: contain;
-    max-height: 164px;
-    padding-bottom: 10%;
-    width: 80%;
+    padding-bottom: 13.7%;
+    width: 90%;
     margin: auto;
-    margin-bottom: 20px; }
+    margin-bottom: 43px; }
+
+  .motto {
+    font-size: 14pt; }
 
   /*********************
   POSTS & CONTENT STYLES
@@ -6521,7 +6653,7 @@ MEDIUM
 
   .widget {
     padding: 25px;
-    margin: 0 0 3em 0; }
+    margin: 0 0 1.4em 0; }
 
   /*********************
   FOOTER STYLES
@@ -6531,19 +6663,25 @@ MEDIUM
   do they need tweaking?
   */
   .footer {
-    padding-top: 40px; }
+    padding-top: 70px; }
 
   .footer-widget {
-    width: 26%;
+    width: 23%;
     padding: 20px;
     float: left; }
 
   .footer-logo-widget {
-    border-left: 1px solid #FFF;
+    border-left: 1px solid #3D3D3B;
     height: 250px;
-    width: 22%; }
+    width: 29%;
+    margin-left: 2%;
+    padding-top: 27px;
+    padding-left: 50px; }
 
   /* end .footer-links */ }
+@media only screen and (min-width: 40.063em) and (min-width: 1200px) {
+  #clouds-logo {
+    padding-bottom: 165px; } }
 /*
 LARGE
 This is the average viewing window. So Desktops, Laptops, and

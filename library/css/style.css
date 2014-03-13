@@ -4735,8 +4735,8 @@ blockquote p {
 .vcard {
   display: inline-block;
   margin: 0 0 1.25rem 0;
-  border: 1px solid #dddddd;
-  padding: 0.625rem 0.75rem; }
+  border: 0px solid #dddddd;
+  padding: 0 0; }
   .vcard li {
     margin: 0;
     display: block; }
@@ -5051,9 +5051,9 @@ meta.foundation-mq-topbar {
     color: #3d3d3d; }
   .top-bar-section ul li.active > a {
     background: #00a388;
-    color: #707070; }
+    color: #3d3d3d; }
     .top-bar-section ul li.active > a:hover {
-      color: #3d3d3d; }
+      color: #707070; }
   .top-bar-section ul li.first-item-in-menu > a {
     background-color: #636363;
     color: #fff;
@@ -5999,7 +5999,7 @@ GENERAL STYLES
 #main {
   padding-right: 0px; }
 
-button {
+button, .button {
   padding-top: 6px;
   padding-bottom: 8px;
   font-size: 10pt; }
@@ -6486,10 +6486,8 @@ SIDEBARS & ASIDES
 *********************/
 .sidebar {
   margin-top: 15px; }
-  .sidebar .widget {
-    line-height: normal; }
-    .sidebar .widget li {
-      padding-bottom: 0px; }
+  .sidebar .widget li {
+    padding-bottom: 0px; }
   .sidebar .widgettitle {
     margin-bottom: 12px; }
 
@@ -6499,7 +6497,9 @@ SIDEBARS & ASIDES
 
 .recents-posts-link {
   font-size: 9pt;
-  padding-top: 0px; }
+  padding-top: 0px;
+  line-height: 1;
+  display: block; }
 
 .footer-widget-title {
   color: white;

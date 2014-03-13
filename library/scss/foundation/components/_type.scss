@@ -80,7 +80,7 @@ $blockquote-cite-link-color: $blockquote-cite-font-color !default;
 $acronym-underline: 1px dotted #ddd !default;
 
 // We use these to control padding and margin
-$microformat-padding: rem-calc(10 12) !default;
+$microformat-padding: rem-calc(0 0) !default;
 $microformat-margin: rem-calc(0 0 20 0) !default;
 
 // We use these to control the border styles

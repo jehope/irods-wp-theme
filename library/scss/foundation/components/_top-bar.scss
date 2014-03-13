@@ -361,10 +361,10 @@ meta.foundation-mq-topbar {
         // Apply the active link color when it has that class
         &.active > a {
             background: $topbar-link-bg-active;
-            color: lighten($topbar-link-color-hover, 20%);
+            color: $topbar-link-color-hover;
 
           &:hover {
-            color: $topbar-link-color-hover;
+            color: lighten($topbar-link-color-hover, 20%);
           }
         }
 

@@ -48,14 +48,11 @@
 					
     					    <article id="post-not-found" class="hentry clearfix">
     					    	<header class="article-header">
-    					    		<h1><?php _e("Sorry, No Results.", "jointstheme"); ?></h1>
+    					    		<p><?php _e("Sorry, No Results.", "jointstheme"); ?></p>
     					    	</header>
     					    	<section class="entry-content">
     					    		<p><?php _e("Try your search again.", "jointstheme"); ?></p>
     					    	</section>
-    					    	<footer class="article-footer">
-    					    	    <p><?php _e("This is the error message in the search.php template.", "jointstheme"); ?></p>
-    					    	</footer>
     					    </article>
 					
 					    <?php endif; ?>

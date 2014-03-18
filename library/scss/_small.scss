@@ -198,11 +198,11 @@ LINK STYLES
 *********************/
 
 a, a:visited {
-	color: $secondary-color;
+	color: darken($secondary-color,13%);
 
 	/*adds highlight on hover */
 	&:hover, &:focus {
-		color: $primary-color;
+		color: darken($primary-color,30%);
 	}
 
 	/* on click */
@@ -235,8 +235,13 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
 	*/
 
 	/* removing text decoration from all headline links */
-	a {
+	a, a:visited {
 		text-decoration: none;
+		color: $secondary-color;
+		&:hover, &:focus {
+			color: $primary-color;
+		}
+
 	}
 }
 
@@ -790,8 +795,13 @@ SIDEBARS & ASIDES
 .sidebar {
 	margin-top: 15px;
 	.widget{
+	background-color: $primary-color;
+
 		li {
 			padding-bottom: 0px;
+		}
+		a:hover {
+			color: $secondary-color;
 		}
 
 	}

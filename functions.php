@@ -72,7 +72,13 @@ You can change the names and dimensions to whatever
 you like. 
 */
 
-
+add_filter('single_template', create_function(
+	'$the_template',
+	'foreach( (array) get_the_category() as $cat ) {
+		if ( file_exists(TEMPLATEPATH . "/single-{$cat->slug}.php") )
+		return TEMPLATEPATH . "/single-{$cat->slug}.php"; }
+	return $the_template;' )
+);
 /*********************
 MENUS & NAVIGATION
 *********************/
@@ -239,10 +245,118 @@ add_action('pre_get_search_form', 'search_form_no_filters');
 	*/
 } // don't remove this bracket!
 
-/**
- * Adds Foo_Widget widget.
- */
-class Foo_Widget extends WP_Widget {
+class Use_Cases_Widget extends WP_Widget {
+
+	/**
+	 * Sets up the widgets name etc
+	 */
+	public function __construct() {
+		parent::__construct(
+			'foo_widget', // Base ID
+			__('Use Cases', 'text_domain'), // Name
+			array( 'description' => __( 'Use Cases Widget (links to in-screen pop-ups)', 'text_domain' ), ) // Args
+		);
+	}
+
+	function widget($args, $instance) {
+	   extract( $args );
+	   // these are the widget options
+	   $title = apply_filters('widget_title', $instance['title']);
+	   $text = $instance['text'];
+	   $textarea = $instance['textarea'];
+	   echo $before_widget;
+	   // Display the widget
+	   echo '<div class="widget-text wp_widget_plugin_box">';
+
+	   // Check if title is set
+	   if ( $title ) {
+	      echo $before_title . $title . $after_title;
+	   }
+
+	   // Check if text is set
+	   if( $text ) {
+	      echo '<p class="wp_widget_plugin_text">'.$text.'</p>';
+	   }
+
+	   if( $textarea ) {
+	   		$ids = explode(',',$textarea);
+	   }
+	   echo "<ul class='use-cases-lists'>";
+	   	foreach($ids as $id){
+
+	   		//get post information
+	   		$id = trim($id);
+			$post = get_post( $id );
+			$title = $post->post_title;
+			$content = $post->post_content;
+
+			//create 'Modal' pop-up display
+		   echo '<div id="myModal' . $id . '" class="reveal-modal" data-reveal>
+					
+				  <h1>' . $title . '</h1>
+				  <p class="lead">'. $content . '</p>
+				  <a class="close-reveal-modal">&#215;</a> 
+				</div>';
+
+			//create link to display in widget
+			echo '<li><a href="#" data-reveal-id="myModal' . $id . '" data-reveal>' . $title . '</a></li>';
+
+		}
+
+		echo "</ul>";
+
+	   echo '</div>';
+	   echo $after_widget;
+	}
+
+	function form($instance) {
+
+		// Check values
+		if( $instance) {
+		     $title = esc_attr($instance['title']);
+		     $text = esc_attr($instance['text']);
+		     $textarea = esc_textarea($instance['textarea']);
+		} else {
+		     $title = '';
+		     $text = '';
+		     $textarea = '';
+		}
+		?>
+
+		<p>
+		<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Widget Title', 'wp_widget_plugin'); ?></label>
+		<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" />
+		</p>
+
+		<p>
+		<label for="<?php echo $this->get_field_id('text'); ?>"><?php _e('Description (optional text):', 'wp_widget_plugin'); ?></label>
+		<input class="widefat" id="<?php echo $this->get_field_id('text'); ?>" name="<?php echo $this->get_field_name('text'); ?>" type="text" value="<?php echo $text; ?>" />
+		</p>
+
+		<p>
+		<label for="<?php echo $this->get_field_id('textarea'); ?>"><?php _e('Desired Use Cases (enter post-ids separated by comma):', 'wp_widget_plugin'); ?></label>
+		<textarea class="widefat" id="<?php echo $this->get_field_id('textarea'); ?>" name="<?php echo $this->get_field_name('textarea'); ?>"><?php echo $textarea; ?></textarea>
+		</p>
+		<?php
+	}
+
+	// update widget
+	function update($new_instance, $old_instance) {
+	      $instance = $old_instance;
+	      // Fields
+	      $instance['title'] = strip_tags($new_instance['title']);
+	      $instance['text'] = strip_tags($new_instance['text']);
+	      $instance['textarea'] = strip_tags($new_instance['textarea']);
+	     return $instance;
+	}
+
+}
+add_action( 'widgets_init', function(){
+     register_widget( 'Use_Cases_Widget' );
+});
+
+
+class Recent_Widget extends WP_Widget {
 ///THIS IS THE NEW RECENT POSTS WIDGET BECAUSE THE OTHER ONE DIDN'T DISPLAY THE DATE BEFORE THE TITLE
 	/**
 	 * Register widget with WordPress.
@@ -364,13 +478,13 @@ function flush_widget_cache() {
 
 		return $instance;
 	}
-} // class Foo_Widget
+} // class Recent_Widget
 
-// register Foo_Widget widget
-function register_foo_widget() {
-    register_widget( 'Foo_Widget' );
+// register Recent_Widget widget
+function register_recent_widget() {
+    register_widget( 'Recent_Widget' );
 }
-add_action( 'widgets_init', 'register_foo_widget' );
+add_action( 'widgets_init', 'register_recent_widget' );
 
 /*********************
 COMMENT LAYOUT

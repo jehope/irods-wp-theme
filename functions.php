@@ -264,6 +264,14 @@ class Use_Cases_Widget extends WP_Widget {
 	   $title = apply_filters('widget_title', $instance['title']);
 	   $text = $instance['text'];
 	   $textarea = $instance['textarea'];
+
+	   if( $textarea ) {
+	   		$category = $textarea;
+	   }
+
+		$posts = new WP_Query( apply_filters( 'widget_posts_args', array( 'no_found_rows' => true, 'post_status' => 'publish', 'ignore_sticky_posts' => true, 'category_name'=> $category) ) );
+	   	if ($posts->have_posts()) :
+
 	   echo $before_widget;
 	   // Display the widget
 	   echo '<div class="widget-text wp_widget_plugin_box">';
@@ -278,35 +286,40 @@ class Use_Cases_Widget extends WP_Widget {
 	      echo '<p class="wp_widget_plugin_text">'.$text.'</p>';
 	   }
 
-	   if( $textarea ) {
-	   		$ids = explode(',',$textarea);
-	   }
-	   echo "<ul class='use-cases-lists'>";
-	   	foreach($ids as $id){
 
+	   echo "<ul class='use-cases-lists'>";
+
+?>
+		<?php while ( $posts->have_posts() ) : $posts->the_post(); ?>
+			<li>
+				<?php
 	   		//get post information
-	   		$id = trim($id);
-			$post = get_post( $id );
-			$title = $post->post_title;
-			$content = $post->post_content;
+			$post_id = get_the_id();
+			$post_title = get_the_title();
+			$post_content = get_the_content();
 
 			//create 'Modal' pop-up display
-		   echo '<div id="myModal' . $id . '" class="reveal-modal" data-reveal>
+		   echo '<div id="myModal' . $post_id . '" class="reveal-modal" data-reveal>
 					
-				  <h1>' . $title . '</h1>
-				  <p class="lead">'. $content . '</p>
+				  <h1>' . $post_title . '</h1>
+				  <p class="lead">'. $post_content . '</p>
 				  <a class="close-reveal-modal">&#215;</a> 
 				</div>';
 
 			//create link to display in widget
-			echo '<li><a href="#" data-reveal-id="myModal' . $id . '" data-reveal>' . $title . '</a></li>';
+			echo '<li><a href="#" data-reveal-id="myModal' . $post_id . '" data-reveal>' . $post_title . '</a></li>';
 
-		}
-
+				?>
+			</li>
+		<?php endwhile; ?>
+		</ul>
+<?php
 		echo "</ul>";
 
 	   echo '</div>';
-	   echo $after_widget;
+	   echo $after_widget; 
+	    endif; 
+
 	}
 
 	function form($instance) {
@@ -334,7 +347,7 @@ class Use_Cases_Widget extends WP_Widget {
 		</p>
 
 		<p>
-		<label for="<?php echo $this->get_field_id('textarea'); ?>"><?php _e('Desired Use Cases (enter post-ids separated by comma):', 'wp_widget_plugin'); ?></label>
+		<label for="<?php echo $this->get_field_id('textarea'); ?>"><?php _e('Post Category (slug of a single post category)', 'wp_widget_plugin'); ?></label>
 		<textarea class="widefat" id="<?php echo $this->get_field_id('textarea'); ?>" name="<?php echo $this->get_field_name('textarea'); ?>"><?php echo $textarea; ?></textarea>
 		</p>
 		<?php
@@ -403,14 +416,15 @@ class Recent_Widget extends WP_Widget {
  			$number = 10;
 		$show_date = isset( $instance['show_date'] ) ? $instance['show_date'] : false;
 
-		$r = new WP_Query( apply_filters( 'widget_posts_args', array( 'posts_per_page' => $number, 'no_found_rows' => true, 'post_status' => 'publish', 'ignore_sticky_posts' => true ) ) );
+		$newscatid = get_cat_ID( "News");
+		$r = new WP_Query( apply_filters( 'widget_posts_args', array( 'posts_per_page' => $number, 'no_found_rows' => true, 'post_status' => 'publish', 'ignore_sticky_posts' => true, 'cat'=> $newscatid) ) );
 		if ($r->have_posts()) :
 ?>
 		<?php echo $before_widget; ?>
 		<?php if ( $title ) echo $before_title . $title . $after_title; ?>
 		<ul>
 		<?php while ( $r->have_posts() ) : $r->the_post(); ?>
-			<li>
+		<li>
 			<?php if ( $show_date ) : ?>
 				<span class="recents-post-date"><?php echo get_the_date("F j"); ?><br /></span>
 			<?php endif; ?>

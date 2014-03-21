@@ -5074,6 +5074,7 @@ meta.foundation-mq-topbar {
       border-color: transparent transparent transparent rgba(255, 255, 255, 0.4);
       border-left-style: solid;
       margin-right: 11.66667px;
+      margin-right: 0px;
       margin-top: -4.5px;
       position: absolute;
       top: 50%;
@@ -5166,7 +5167,7 @@ meta.foundation-mq-topbar {
       .top-bar-section li a:not(.button):hover {
         background: #00a388; }
     .top-bar-section .has-dropdown > a {
-      padding-right: 31.66667px !important; }
+      padding-right: 16.66667px !important; }
       .top-bar-section .has-dropdown > a:after {
         content: "";
         display: block;
@@ -6499,7 +6500,7 @@ SIDEBARS & ASIDES
     margin-bottom: 12px; }
   .sidebar .use-cases-lists {
     font-size: 11pt;
-    line-height: 80%; }
+    line-height: 100%; }
 
 .recents-post-date {
   font-size: 9pt;

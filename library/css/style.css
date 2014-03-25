@@ -6083,7 +6083,7 @@ input[type="search"]:active {
   display: none; }
 
 #clouds {
-  background-image: url("../images/lines-repeat1.png"), url("../images/irods-bg.jpg");
+  background-image: url("../images/lines-repeat1.png"), url("../images/background.png");
   background-position: bottom left, bottom center;
   background-repeat: repeat-x, no-repeat;
   background-size: auto, cover;
@@ -6092,8 +6092,8 @@ input[type="search"]:active {
   margin-bottom: 50px;
   padding-top: 90px;
   min-height: 100px;
-  max-height: 412px;
-  padding-bottom: 13%; }
+  max-height: 312px;
+  padding-bottom: 9%; }
 
 #clouds-logo {
   background-image: url("../images/irods-logo-main.png");
@@ -6613,25 +6613,24 @@ MEDIUM
   NAVIGATION STYLES
   *********************/
   #clouds {
-    background-image: url("../images/lines-repeat1.png"), url("../images/irods-bg.jpg");
-    background-position: bottom left, bottom center;
+    background-position: bottom left, top center;
     background-repeat: repeat-x, no-repeat;
     background-size: auto, cover;
     color: #636363;
     text-align: center;
     margin-bottom: 50px;
-    padding-top: 90px;
+    padding-top: 50px;
     min-height: 100px;
-    max-height: 412px;
-    padding-bottom: 13%; }
+    max-height: 312px;
+    padding-bottom: 9%; }
 
   #clouds-logo {
     background-image: url("../images/irods-logo-main.png");
     background-position: top center;
     background-repeat: no-repeat;
     background-size: contain;
-    padding-bottom: 13.7%;
-    width: 90%;
+    padding-bottom: 11.7%;
+    width: 70%;
     margin: auto;
     margin-bottom: 43px; }
 
@@ -6698,7 +6697,7 @@ MEDIUM
   /* end .footer-links */ }
 @media only screen and (min-width: 40.063em) and (min-width: 1200px) {
   #clouds-logo {
-    padding-bottom: 165px; } }
+    padding-bottom: 145px; } }
 /*
 LARGE
 This is the average viewing window. So Desktops, Laptops, and

@@ -111,7 +111,7 @@ input[type="search"]:active {
 }
 
 #clouds {
-	background-image: url('../images/lines-repeat1.png'),url('../images/irods-bg.jpg');
+	background-image: url('../images/lines-repeat1.png'),url('../images/background.png');
 	background-position: bottom left, bottom center;
 	background-repeat: repeat-x, no-repeat;
 	background-size: auto, cover;
@@ -120,8 +120,8 @@ input[type="search"]:active {
 	margin-bottom: 50px;
 	padding-top: 90px;
 	min-height: 100px;
-	max-height: 412px;
-	padding-bottom: 13%;
+	max-height: 312px;
+	padding-bottom: 9%;
 }
 #clouds-logo {
 	background-image: url('../images/irods-logo-main.png');

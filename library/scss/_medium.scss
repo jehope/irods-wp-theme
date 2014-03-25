@@ -15,25 +15,24 @@ Styles apply to 40.063em and up.
 NAVIGATION STYLES
 *********************/
 #clouds {
-	background-image: url('../images/lines-repeat1.png'),url('../images/irods-bg.jpg');
-	background-position: bottom left, bottom center;
+	background-position: bottom left, top center;
 	background-repeat: repeat-x, no-repeat;
 	background-size: auto, cover;
 	color: $primary-color;
 	text-align: center;
 	margin-bottom: 50px;
-	padding-top: 90px;
+	padding-top: 50px;
 	min-height: 100px;
-	max-height: 412px;
-	padding-bottom: 13%;
+	max-height: 312px;
+	padding-bottom: 9%;
 }
 #clouds-logo {
 	background-image: url('../images/irods-logo-main.png');
 	background-position: top center;
 	background-repeat: no-repeat;
 	background-size: contain;
-	padding-bottom: 13.7%;
-	width: 90%;
+	padding-bottom: 11.7%;
+	width: 70%;
 	margin: auto;
 	margin-bottom: 43px;
 }
@@ -42,7 +41,7 @@ NAVIGATION STYLES
 }
 @media (min-width: 1200px) {
 	#clouds-logo {
-		padding-bottom: 165px;
+		padding-bottom: 145px;
 	}
 }
 

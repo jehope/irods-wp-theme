@@ -364,10 +364,12 @@ class Use_Cases_Widget extends WP_Widget {
 	}
 
 }
-add_action( 'widgets_init', function(){
-     register_widget( 'Use_Cases_Widget' );
-});
 
+
+function register_use_cases() {
+	register_widget( 'Use_Cases_Widget' );
+}
+add_action( 'widgets_init', 'register_use_cases');
 
 class Recent_Widget extends WP_Widget {
 ///THIS IS THE NEW RECENT POSTS WIDGET BECAUSE THE OTHER ONE DIDN'T DISPLAY THE DATE BEFORE THE TITLE

@@ -102,4 +102,4 @@ The comments page for joints
 	<?php endif; // If registration required and not logged in ?>
 </section>
 
-<?php endif; // if you delete this the sky will fall on your head ?>
+<?php endif; // if you delete this the sky will fall on your head 

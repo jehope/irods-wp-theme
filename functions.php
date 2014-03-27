@@ -285,11 +285,7 @@ class Use_Cases_Widget extends WP_Widget {
 	   if( $text ) {
 	      echo '<p class="wp_widget_plugin_text">'.$text.'</p>';
 	   }
-
-
-	   echo "<ul class='use-cases-lists'>";
-
-?>
+	   ?><ul class='use-cases-lists'>
 		<?php while ( $posts->have_posts() ) : $posts->the_post(); ?>
 			<li>
 				<?php
@@ -313,11 +309,7 @@ class Use_Cases_Widget extends WP_Widget {
 			</li>
 		<?php endwhile; ?>
 		</ul>
-<?php
-		echo "</ul>";
-
-	   echo '</div>';
-	   echo $after_widget; 
+<?php echo "</ul></div>" . $after_widget; 
 	    endif; 
 
 	}
@@ -333,8 +325,7 @@ class Use_Cases_Widget extends WP_Widget {
 		     $title = '';
 		     $text = '';
 		     $textarea = '';
-		}
-		?>
+		} ?>
 
 		<p>
 		<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Widget Title', 'wp_widget_plugin'); ?></label>
@@ -420,8 +411,7 @@ class Recent_Widget extends WP_Widget {
 
 		$newscatid = get_cat_ID( "News");
 		$r = new WP_Query( apply_filters( 'widget_posts_args', array( 'posts_per_page' => $number, 'no_found_rows' => true, 'post_status' => 'publish', 'ignore_sticky_posts' => true, 'cat'=> $newscatid) ) );
-		if ($r->have_posts()) :
-?>
+		if ($r->have_posts()) : ?>
 		<?php echo $before_widget; ?>
 		<?php if ( $title ) echo $before_title . $title . $after_title; ?>
 		<ul>
@@ -455,8 +445,7 @@ class Recent_Widget extends WP_Widget {
 	function form( $instance ) {
 		$title     = isset( $instance['title'] ) ? esc_attr( $instance['title'] ) : '';
 		$number    = isset( $instance['number'] ) ? absint( $instance['number'] ) : 5;
-		$show_date = isset( $instance['show_date'] ) ? (bool) $instance['show_date'] : false;
-?>
+		$show_date = isset( $instance['show_date'] ) ? (bool) $instance['show_date'] : false; ?>
 		<p><label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
 		<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $title; ?>" /></p>
 
@@ -512,12 +501,6 @@ function joints_comments($comment, $args, $depth) {
 	<li <?php comment_class('panel'); ?>>
 		<article id="comment-<?php comment_ID(); ?>" class="clearfix large-12 columns">
 			<header class="comment-author">
-				<?php
-				/*
-					this is the new responsive optimized comment image. It used the new HTML5 data-attribute to display comment gravatars on larger screens only. What this means is that on larger posts, mobile sites don't have a ton of requests for comment images. This makes load time incredibly fast! If you'd like to change it back, just replace it with the regular wordpress gravatar call:
-					echo get_avatar($comment,$size='32',$default='<path_to_url>' );
-				*/
-				?>
 				<!-- custom gravatar call -->
 				<?php
 					// create variable
@@ -538,9 +521,4 @@ function joints_comments($comment, $args, $depth) {
 			<?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
 		</article>
 	<!-- </li> is added by WordPress automatically -->
-<?php
-} // don't remove this bracket!
-
-
-
-?>
+<?php } // don't remove this bracket!?>

@@ -3,11 +3,11 @@
 
 	<header class="article-header">
 		<?php 
-			if(!is_front_page()){
+			//if(!is_front_page()){
 				echo '<h1 class="page-title">';
 			the_title();
 				echo '</h1>';
-			}
+			//}
 		 ?>
 	</header> <!-- end article header -->
 					

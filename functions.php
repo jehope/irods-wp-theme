@@ -5,11 +5,9 @@ This is where you can drop your custom functions or
 just edit things like thumbnail sizes, header images,
 sidebars, comments, ect.
 */
-
 /*********************
 INCLUDE NEEDED FILES
 *********************/
-
 /*
 library/joints.php
 	- head cleanup (remove rsd, uri links, junk css, ect)
@@ -44,11 +42,9 @@ library/translation/translation.php
 	- adding support for other languages
 */
 // require_once('library/translation/translation.php'); // this comes turned off by default
-
 /*********************
 THUMNAIL SIZE OPTIONS
 *********************/
-
 // Thumbnail sizes
 add_image_size( 'joints-thumb-600', 600, 150, true );
 add_image_size( 'joints-thumb-300', 300, 100, true );
@@ -58,20 +54,16 @@ and change the dimensions & name. As long as you
 upload a "featured image" as large as the biggest
 set width or height, all the other sizes will be
 auto-cropped.
-
 To call a different size, simply change the text
 inside the thumbnail function.
-
 For example, to call the 300 x 300 sized image,
 we would use the function:
 <?php the_post_thumbnail( 'joints-thumb-300' ); ?>
 for the 600 x 100 image:
 <?php the_post_thumbnail( 'joints-thumb-600' ); ?>
-
 You can change the names and dimensions to whatever
 you like. 
 */
-
 add_filter('single_template', create_function(
 	'$the_template',
 	'foreach( (array) get_the_category() as $cat ) {
@@ -89,15 +81,12 @@ register_nav_menus(
 		'footer-links' => __( 'Footer Links' ) // secondary nav in footer
 	)
 );
-
-
 function wpb_first_and_last_menu_class($items) {
     $items[1]->classes[] = 'first-item-in-menu';
     $items[count($items)]->classes[] = 'last-item-in-menu';
     return $items;
 }
-
-add_filter('wp_nav_menu_objects', 'wpb_first_and_last_menu_class');
+//add_filter('wp_nav_menu_objects', 'wpb_first_and_last_menu_class');
 // the main menu
 function joints_main_nav() {
 	// display the wp3 menu if available
@@ -113,12 +102,7 @@ function joints_main_nav() {
         'link_after' => '',                             // after each link
     	'fallback_cb' => 'joints_main_nav_fallback'      // fallback function
 	));
-
 } /* end joints main nav */
-
-
-
-
 // the footer menu (should you choose to use one)
 function joints_footer_links() {
 	// display the wp3 menu if available
@@ -136,7 +120,6 @@ function joints_footer_links() {
     	'fallback_cb' => 'joints_footer_links_fallback'  // fallback function
 	));
 } /* end joints footer link */
-
 // this is the fallback for header menu
 function joints_main_nav_fallback() {
 	wp_page_menu( array(
@@ -149,16 +132,13 @@ function joints_main_nav_fallback() {
         'link_after' => ''                             // after each link
 	) );
 }
-
 // this is the fallback for footer menu
 function joints_footer_links_fallback() {
 	/* you can put a default here if you like */
 }
-
 /*********************
 SIDEBARS
 *********************/
-
 // Sidebars & Widgetizes Areas
 function joints_register_sidebars() {
 	register_sidebar(array(
@@ -170,7 +150,6 @@ function joints_register_sidebars() {
 		'before_title' => '<h4 class="widgettitle">',
 		'after_title' => '</h4>',
 	));
-
 	register_sidebar(array(
 		'id' => 'footer1',
 		'name' => __('Footer1', 'jointstheme'),
@@ -198,7 +177,6 @@ function joints_register_sidebars() {
 		'before_title' => '<h4 class="footer-widget-title">',
 		'after_title' => '</h4>',
 	));
-
 	register_sidebar(array(
 		'id' => 'footer4',
 		'name' => __('Footer4', 'jointstheme'),
@@ -208,7 +186,6 @@ function joints_register_sidebars() {
 		'before_title' => '<h4 class="footer-widget-title">',
 		'after_title' => '</h4>',
 	));
-
 function search_form_no_filters() {
   // look for local searchform template
   $search_form_template = locate_template( 'searchform.php' );
@@ -218,15 +195,12 @@ function search_form_no_filters() {
   }
 }
 add_action('pre_get_search_form', 'search_form_no_filters');
-
 	/*
 	to add more sidebars or widgetized areas, just copy
 	and edit the above sidebar code. In order to call
-	your new sidebar just use the following code:
-
+	yournew sidebar just use the following code:
 	Just change the name to whatever your new
 	sidebar's id is, for example:
-
 	register_sidebar(array(
 		'id' => 'sidebar2',
 		'name' => __('Sidebar 2', 'jointstheme'),
@@ -236,17 +210,13 @@ add_action('pre_get_search_form', 'search_form_no_filters');
 		'before_title' => '<h4 class="widgettitle">',
 		'after_title' => '</h4>',
 	));
-
 	To call the sidebar in your template, you can just copy
 	the sidebar.php file and rename it to your sidebar's name.
 	So using the above example, it would be:
 	sidebar-sidebar2.php
-
 	*/
 } // don't remove this bracket!
-
 class Use_Cases_Widget extends WP_Widget {
-
 	/**
 	 * Sets up the widgets name etc
 	 */
@@ -257,65 +227,46 @@ class Use_Cases_Widget extends WP_Widget {
 			array( 'description' => __( 'Use Cases Widget (links to in-screen pop-ups)', 'text_domain' ), ) // Args
 		);
 	}
-
 	function widget($args, $instance) {
 	   extract( $args );
 	   // these are the widget options
 	   $title = apply_filters('widget_title', $instance['title']);
 	   $text = $instance['text'];
 	   $textarea = $instance['textarea'];
-
 	   if( $textarea ) {
 	   		$category = $textarea;
 	   }
-
 		$posts = new WP_Query( apply_filters( 'widget_posts_args', array( 'no_found_rows' => true, 'post_status' => 'publish', 'ignore_sticky_posts' => true, 'category_name'=> $category) ) );
 	   	if ($posts->have_posts()) :
-
 	   echo $before_widget;
 	   // Display the widget
 	   echo '<div class="widget-text wp_widget_plugin_box">';
-
-	   // Check if title is set
+	   // check if title is set
 	   if ( $title ) {
 	      echo $before_title . $title . $after_title;
 	   }
-
 	   // Check if text is set
 	   if( $text ) {
 	      echo '<p class="wp_widget_plugin_text">'.$text.'</p>';
 	   }
 	   ?><ul class='use-cases-lists'>
-		<?php while ( $posts->have_posts() ) : $posts->the_post(); ?>
-			<li>
-				<?php
+		<?php while ( $posts->have_posts() ) : $posts->the_post(); ?> <li><?php		
 	   		//get post information
 			$post_id = get_the_id();
 			$post_title = get_the_title();
 			$post_content = get_the_content();
-
 			//create 'Modal' pop-up display
 		   echo '<div id="myModal' . $post_id . '" class="reveal-modal" data-reveal>
-					
 				  <h1>' . $post_title . '</h1>
 				  <p class="lead">'. $post_content . '</p>
 				  <a class="close-reveal-modal">&#215;</a> 
 				</div>';
-
 			//create link to display in widget
 			echo '<li><a href="#" data-reveal-id="myModal' . $post_id . '" data-reveal>' . $post_title . '</a></li>';
-
-				?>
-			</li>
-		<?php endwhile; ?>
-		</ul>
-<?php echo "</ul></div>" . $after_widget; 
+				?></li><?php endwhile; ?> </ul><?php echo "</ul></div>" . $after_widget; 
 	    endif; 
-
 	}
-
 	function form($instance) {
-
 		// Check values
 		if( $instance) {
 		     $title = esc_attr($instance['title']);
@@ -326,24 +277,19 @@ class Use_Cases_Widget extends WP_Widget {
 		     $text = '';
 		     $textarea = '';
 		} ?>
-
 		<p>
 		<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Widget Title', 'wp_widget_plugin'); ?></label>
 		<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" />
 		</p>
-
 		<p>
 		<label for="<?php echo $this->get_field_id('text'); ?>"><?php _e('Description (optional text):', 'wp_widget_plugin'); ?></label>
 		<input class="widefat" id="<?php echo $this->get_field_id('text'); ?>" name="<?php echo $this->get_field_name('text'); ?>" type="text" value="<?php echo $text; ?>" />
 		</p>
-
 		<p>
 		<label for="<?php echo $this->get_field_id('textarea'); ?>"><?php _e('Post Category (slug of a single post category)', 'wp_widget_plugin'); ?></label>
 		<textarea class="widefat" id="<?php echo $this->get_field_id('textarea'); ?>" name="<?php echo $this->get_field_name('textarea'); ?>"><?php echo $textarea; ?></textarea>
-		</p>
-		<?php
+		</p><?php
 	}
-
 	// update widget
 	function update($new_instance, $old_instance) {
 	      $instance = $old_instance;
@@ -353,15 +299,11 @@ class Use_Cases_Widget extends WP_Widget {
 	      $instance['textarea'] = strip_tags($new_instance['textarea']);
 	     return $instance;
 	}
-
 }
-
-
 function register_use_cases() {
 	register_widget( 'Use_Cases_Widget' );
 }
 add_action( 'widgets_init', 'register_use_cases');
-
 class Recent_Widget extends WP_Widget {
 ///THIS IS THE NEW RECENT POSTS WIDGET BECAUSE THE OTHER ONE DIDN'T DISPLAY THE DATE BEFORE THE TITLE
 	/**
@@ -371,12 +313,10 @@ class Recent_Widget extends WP_Widget {
 		$widget_ops = array('classname' => 'widget_recent_entries', 'description' => __( "Your site&#8217;s most recent Posts.") );
 		parent::__construct('recent-posts', __('iRODS Recent Posts'), $widget_ops);
 		$this->alt_option_name = 'widget_recent_entries';
-
 		add_action( 'save_post', array($this, 'flush_widget_cache') );
 		add_action( 'deleted_post', array($this, 'flush_widget_cache') );
 		add_action( 'switch_theme', array($this, 'flush_widget_cache') );
 	}
-
 	/**
 	 * Front-end display of widget.
 	 *
@@ -387,37 +327,29 @@ class Recent_Widget extends WP_Widget {
 	 */
 	function widget($args, $instance) {
 		$cache = wp_cache_get('widget_recent_posts', 'widget');
-
 		if ( !is_array($cache) )
 			$cache = array();
-
 		if ( ! isset( $args['widget_id'] ) )
 			$args['widget_id'] = $this->id;
-
 		if ( isset( $cache[ $args['widget_id'] ] ) ) {
 			echo $cache[ $args['widget_id'] ];
 			return;
 		}
-
 		ob_start();
 		extract($args);
-
 		$title = ( ! empty( $instance['title'] ) ) ? $instance['title'] : __( 'Recent Posts' );
 		$title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
 		$number = ( ! empty( $instance['number'] ) ) ? absint( $instance['number'] ) : 10;
 		if ( ! $number )
  			$number = 10;
 		$show_date = isset( $instance['show_date'] ) ? $instance['show_date'] : false;
-
 		$newscatid = get_cat_ID( "News");
 		$r = new WP_Query( apply_filters( 'widget_posts_args', array( 'posts_per_page' => $number, 'no_found_rows' => true, 'post_status' => 'publish', 'ignore_sticky_posts' => true, 'cat'=> $newscatid) ) );
 		if ($r->have_posts()) : ?>
 		<?php echo $before_widget; ?>
-		<?php if ( $title ) echo $before_title . $title . $after_title; ?>
-		<ul>
-		<?php while ( $r->have_posts() ) : $r->the_post(); ?>
-		<li>
-			<?php if ( $show_date ) : ?>
+		<?php if ( $title ) echo $before_title . $title . $after_title; 
+		?><ul><?php while ( $r->have_posts() ) : $r->the_post(); 
+		?><li><?php if ( $show_date ) : ?>
 				<span class="recents-post-date"><?php echo get_the_date("F j"); ?><br /></span>
 			<?php endif; ?>
 				<a class="recents-posts-link" href="<?php the_permalink(); ?>"><?php get_the_title() ? the_title() : the_ID(); ?></a>
@@ -428,14 +360,11 @@ class Recent_Widget extends WP_Widget {
 <?php
 		// Reset the global $the_post as this query will have stomped on it
 		wp_reset_postdata();
-
 		endif;
-
 		$cache[$args['widget_id']] = ob_get_flush();
 		wp_cache_set('widget_recent_posts', $cache, 'widget');
 	}
-
-	/**
+	/*
 	 * Back-end widget form.
 	 *
 	 * @see WP_Widget::form()
@@ -448,15 +377,12 @@ class Recent_Widget extends WP_Widget {
 		$show_date = isset( $instance['show_date'] ) ? (bool) $instance['show_date'] : false; ?>
 		<p><label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
 		<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $title; ?>" /></p>
-
 		<p><label for="<?php echo $this->get_field_id( 'number' ); ?>"><?php _e( 'Number of posts to show:' ); ?></label>
 		<input id="<?php echo $this->get_field_id( 'number' ); ?>" name="<?php echo $this->get_field_name( 'number' ); ?>" type="text" value="<?php echo $number; ?>" size="3" /></p>
-
 		<p><input class="checkbox" type="checkbox" <?php checked( $show_date ); ?> id="<?php echo $this->get_field_id( 'show_date' ); ?>" name="<?php echo $this->get_field_name( 'show_date' ); ?>" />
 		<label for="<?php echo $this->get_field_id( 'show_date' ); ?>"><?php _e( 'Display post date?' ); ?></label></p>
 <?php
 	}
-
 function flush_widget_cache() {
 		wp_cache_delete('widget_recent_posts', 'widget');
 	}
@@ -476,25 +402,20 @@ function flush_widget_cache() {
 		$instance['number'] = (int) $new_instance['number'];
 		$instance['show_date'] = isset( $new_instance['show_date'] ) ? (bool) $new_instance['show_date'] : false;
 		$this->flush_widget_cache();
-
 		$alloptions = wp_cache_get( 'alloptions', 'options' );
 		if ( isset($alloptions['widget_recent_entries']) )
 			delete_option('widget_recent_entries');
-
 		return $instance;
 	}
 } // class Recent_Widget
-
 // register Recent_Widget widget
 function register_recent_widget() {
     register_widget( 'Recent_Widget' );
 }
 add_action( 'widgets_init', 'register_recent_widget' );
-
 /*********************
 COMMENT LAYOUT
 *********************/
-
 // Comment Layout
 function joints_comments($comment, $args, $depth) {
    $GLOBALS['comment'] = $comment; ?>
@@ -521,4 +442,4 @@ function joints_comments($comment, $args, $depth) {
 			<?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
 		</article>
 	<!-- </li> is added by WordPress automatically -->
-<?php } // don't remove this bracket!?>
+<?php } 

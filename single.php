@@ -10,7 +10,11 @@
 					
 					    	<?php get_template_part( 'partials/loop', 'single' ); ?>
 					    					
-					    <?php endwhile; else : ?>
+					    <?php endwhile; ?>
+					    	<?php next_post_link('<p>Next: %link</p>','%title', TRUE); ?>
+					    	<?php previous_post_link('<p>Previous: %link</p>','%title', TRUE); ?>
+
+						<?php else : ?>
 					
 					   		<?php get_template_part( 'partials/missing', 'content' ); ?>
 

@@ -7,7 +7,7 @@
 				<!-- Title Area -->
 				<li class="name">
 					 <a href="<?php echo home_url(); ?>" rel="nofollow">
-					 	<img src="<?php echo get_template_directory_uri(); ?>/library/images/irods-upper-logo.png" />
+					 	<img alt="<?php bloginfo('name'); ?>" src="<?php echo get_template_directory_uri(); ?>/library/images/irods-upper-logo.png" />
 					 </a>
 				</li>
 				<li class="toggle-topbar menu-icon">
@@ -20,4 +20,3 @@
 		</nav>
 	</div>
 </div>
-

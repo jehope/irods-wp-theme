@@ -64,13 +64,6 @@ for the 600 x 100 image:
 You can change the names and dimensions to whatever
 you like. 
 */
-add_filter('single_template', create_function(
-	'$the_template',
-	'foreach( (array) get_the_category() as $cat ) {
-		if ( file_exists(TEMPLATEPATH . "/single-{$cat->slug}.php") )
-		return TEMPLATEPATH . "/single-{$cat->slug}.php"; }
-	return $the_template;' )
-);
 /*********************
 MENUS & NAVIGATION
 *********************/
@@ -186,15 +179,6 @@ function joints_register_sidebars() {
 		'before_title' => '<h4 class="footer-widget-title">',
 		'after_title' => '</h4>',
 	));
-function search_form_no_filters() {
-  // look for local searchform template
-  $search_form_template = locate_template( 'searchform.php' );
-  if ( '' !== $search_form_template ) {
-    // searchform.php exists, remove all filters
-    remove_all_filters('get_search_form');
-  }
-}
-add_action('pre_get_search_form', 'search_form_no_filters');
 	/*
 	to add more sidebars or widgetized areas, just copy
 	and edit the above sidebar code. In order to call
@@ -216,6 +200,17 @@ add_action('pre_get_search_form', 'search_form_no_filters');
 	sidebar-sidebar2.php
 	*/
 } // don't remove this bracket!
+
+function search_form_no_filters() {
+  // look for local searchform template
+  $search_form_template = locate_template( 'searchform.php' );
+  if ( '' !== $search_form_template ) {
+    // searchform.php exists, remove all filters
+    remove_all_filters('get_search_form');
+  }
+}
+add_action('pre_get_search_form', 'search_form_no_filters');
+
 class Use_Cases_Widget extends WP_Widget {
 	/**
 	 * Sets up the widgets name etc
@@ -304,6 +299,7 @@ function register_use_cases() {
 	register_widget( 'Use_Cases_Widget' );
 }
 add_action( 'widgets_init', 'register_use_cases');
+
 class Recent_Widget extends WP_Widget {
 ///THIS IS THE NEW RECENT POSTS WIDGET BECAUSE THE OTHER ONE DIDN'T DISPLAY THE DATE BEFORE THE TITLE
 	/**

@@ -45,7 +45,7 @@ function joints_start() {
     // cleaning up random code around images
     add_filter('the_content', 'joints_filter_ptags_on_images');
     // cleaning up excerpt
-    add_filter('excerpt_more', 'joints_excerpt_more');
+    // add_filter('excerpt_more', 'joints_excerpt_more');
 
 } /* end joints start */
 
@@ -193,7 +193,7 @@ function joints_theme_support() {
 	);
 
 	// rss 
-	add_theme_support('automatic-feed-links');
+	// add_theme_support('automatic-feed-links');
 
 	// to add header image support go here: http://themble.com/support/adding-header-background-image-support/
 
@@ -386,6 +386,4 @@ function joints_get_the_author_posts_link() {
 	);
 	return $link;
 }
-
-
-?>	 
+?>

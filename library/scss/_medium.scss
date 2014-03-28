@@ -44,6 +44,17 @@ NAVIGATION STYLES
 		padding-bottom: 145px;
 	}
 }
+@media (max-width: 835px) {
+	.motto {	
+		font-size: 13pt;
+	}
+}
+@media (max-width: 755px) and (min-width: 630px) {
+	.motto {	
+		font-size: 11pt;
+	}
+}
+
 
 /*********************
 POSTS & CONTENT STYLES

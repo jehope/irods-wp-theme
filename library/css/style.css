@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,700");
 /******************************************************************
 
@@ -6110,6 +6111,27 @@ input[type="search"]:active {
   letter-spacing: 5px;
   font-size: 12pt; }
 
+@media (max-width: 630px) {
+  .motto {
+    font-size: 12pt; } }
+@media (max-width: 575px) {
+  .motto {
+    font-size: 10pt; }
+
+  #clouds-logo {
+    margin-bottom: 35px; } }
+@media (max-width: 500px) {
+  .motto {
+    font-size: 9pt; } }
+@media (max-width: 460px) {
+  .motto {
+    font-size: 8pt; }
+
+  #clouds-logo {
+    margin-bottom: 30px; } }
+@media (max-width: 430px) {
+  .motto {
+    font-size: 7pt; } }
 /********************
 WORDPRESS BODY CLASSES
 style a page via class
@@ -6697,6 +6719,12 @@ MEDIUM
 @media only screen and (min-width: 40.063em) and (min-width: 1200px) {
   #clouds-logo {
     padding-bottom: 145px; } }
+@media only screen and (min-width: 40.063em) and (max-width: 835px) {
+  .motto {
+    font-size: 13pt; } }
+@media only screen and (min-width: 40.063em) and (max-width: 755px) and (min-width: 630px) {
+  .motto {
+    font-size: 11pt; } }
 /*
 LARGE
 This is the average viewing window. So Desktops, Laptops, and

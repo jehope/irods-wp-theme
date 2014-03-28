@@ -140,6 +140,38 @@ input[type="search"]:active {
 	letter-spacing: 5px;
 	font-size: 12pt;
 }
+@media (max-width: 630px) {
+	.motto {	
+		font-size: 12pt;
+	}
+}
+@media (max-width: 575px) {
+	.motto {	
+		font-size: 10pt;
+	}
+	#clouds-logo {
+		margin-bottom: 35px;
+	}
+}
+@media (max-width: 500px) {
+	.motto {
+		font-size: 9pt;
+	}
+}
+@media (max-width: 460px) {
+	.motto {	
+		font-size: 8pt;
+	}
+	#clouds-logo {
+		margin-bottom: 30px;
+	}
+}
+@media (max-width: 430px) {
+	.motto {	
+		font-size: 7pt;
+	}
+}
+
 
 
 

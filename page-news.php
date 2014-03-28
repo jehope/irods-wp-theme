@@ -5,9 +5,15 @@
 				<div id="inner-content" class="row clearfix">
 			
 				    <div id="main" class="large-9 medium-9 columns clearfix" role="main">
-					<?php query_posts('category_name=News'); ?>
+				    	<?php
+							$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+							$args = array(
+							  'category_name' => 'News',
+							  'posts_per_page' => 3,
+							  'paged' => $paged
+							);
 
-
+							query_posts($args); ?>
 					    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 					
 					    	<?php get_template_part( 'partials/loop', 'archive' ); ?>
